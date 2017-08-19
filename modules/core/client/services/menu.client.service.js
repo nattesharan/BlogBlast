@@ -11,7 +11,7 @@
       addMenu: addMenu,
       addMenuItem: addMenuItem,
       addSubMenuItem: addSubMenuItem,
-      defaultRoles: ['user', 'admin'],
+      defaultRoles: ['user'],
       getMenu: getMenu,
       menus: {},
       removeMenu: removeMenu,
