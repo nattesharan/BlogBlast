@@ -45,6 +45,6 @@ p {
   font-family: 'didactgothic-regular';
 }
 @font-face {
-font-family: 'didactgothic-regular';
-src: url('../../../../modules/core/client/fonts/didactgothic-regular.otf')  format('truetype');
+  font-family: 'didactgothic-regular';
+  src: url('../../../../modules/core/client/fonts/didactgothic-regular.otf')  format('truetype');
 }
