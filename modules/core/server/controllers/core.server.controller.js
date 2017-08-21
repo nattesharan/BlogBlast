@@ -3,6 +3,8 @@
 var validator = require('validator'),
   path = require('path'),
   config = require(path.resolve('./config/config'));
+var request = require('request');
+var cheerio = require('cheerio');
 
 /**
  * Render the main application page
@@ -62,5 +64,22 @@ exports.renderNotFound = function (req, res) {
   });
 };
 exports.getUrlInfo = function (req, res) {
-  console.log(req.body);
+  request(req.body.url, function (error, response, html) {
+    if (!error && response.statusCode === 200) {
+      var $ = cheerio.load(html);
+      var metadata = {};
+      var title = $('meta[name="og:title"]').attr('content');
+      if (title === undefined)
+        title = $('meta[property="og:title"]').attr('content');
+      if (title === undefined)
+        title = $('meta[name="title"]').attr('content');
+      var description = $('meta[name="og:description"]').attr('content');
+      if (description === undefined)
+        description = $('meta[property="og:description"]').attr('content');
+      if (description === undefined)
+        description = $('meta[name="description"]').attr('content');
+      console.log(title);
+      console.log(description);
+    }
+  });
 };
