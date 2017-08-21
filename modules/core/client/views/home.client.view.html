@@ -13,32 +13,32 @@
         <div ng-if="vm.info">
           <br>
           <div class="form-group">
-            <table class="table table-striped table-bordered">
-              <tr>
-                <td>Title:
-                </td>
-                <td id="title" contenteditable>{{vm.info.title}}
-                </td>
-              </tr>
-              <tr>
-                <td>Description:
-                </td>
-                <td id="description" contenteditable>{{vm.info.description}}
-                </td>
-              </tr>
-              <tr>
-                <td>Image:
-                </td>
-                <td><img ng-src="{{vm.info.image}}">
-                </td>
-              </tr>
-              <tr>
-                <td>Post:
-                </td>
-                <td id="myDesc" contenteditable>
-                </td>
-              </tr>
-            </table>
+          <table class="table table-striped table-bordered">
+            <tr>
+              <td>Title:
+              </td>
+              <td id="title" contenteditable>{{vm.info.title}}
+              </td>
+            </tr>
+            <tr>
+              <td>Description:
+              </td>
+              <td id="description" contenteditable>{{vm.info.description}}
+              </td>
+            </tr>
+            <tr>
+              <td>Image:
+              </td>
+              <td><img ng-src="{{vm.info.image}}">
+              </td>
+            </tr>
+            <tr>
+              <td>Post:
+              </td>
+              <td id="myDesc" contenteditable>
+              </td>
+            </tr>
+          </table>
           </div>
           <div class="btn btn-info" ng-click="vm.preview()">Preview</div>
           <br><br>
@@ -53,9 +53,7 @@
                   <p>{{vm.info.description}}</p>
                 </td>
               </tr>
-              <tr>
-                <td colspan="2">{{vm.info.myDesc}}</td>
-              </tr>
+              <tr ng-if="vm.info.myDesc"><td colspan="2">{{vm.info.myDesc}}</td></tr>
             </table>
           </div>
         </div>
