@@ -22,7 +22,7 @@
             url: url
           }
         }).then(function success(response) {
-          console.log(response.data);
+          console.log(response);
         });
       } else {
         Notification.error({ message: 'Invalid Url', title: '<i class="glyphicon glyphicon-remove">', delay: 4000 });

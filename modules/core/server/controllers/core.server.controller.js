@@ -83,7 +83,7 @@ exports.getUrlInfo = function (req, res) {
         metadata.image = $('meta[property="og:image"]').attr('content');
       if (metadata.image === undefined)
         metadata.image = $('meta[name="image"]').attr('content');
-      res.send(metadata);
+      res.json(metadata);
     }
   });
 };
