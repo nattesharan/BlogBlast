@@ -11,6 +11,19 @@
     vm.getInfo = getInfo;
     vm.check = false;
     vm.preview = preview;
+    vm.post = post;
+    function post(info) {
+      info.url = vm.url;
+      $http({
+        method: 'POST',
+        url: '/post',
+        data: info
+      }).then(function success(response) {
+        Notification.success({ message: 'Successfully Posted ', delay: '3500' });
+        vm.url = '';
+        vm.info = '';
+      });
+    }
     function checkUrl(url) {
       var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
       return regexp.test(url);

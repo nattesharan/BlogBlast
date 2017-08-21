@@ -5,7 +5,8 @@ var validator = require('validator'),
   config = require(path.resolve('./config/config'));
 var request = require('request');
 var cheerio = require('cheerio');
-
+var FB = require('fb');
+var fb = new FB.Facebook({ appId: '1854872108172743', appSecret: '1325559e9cd7ac27c85e503dd38414c2' });
 /**
  * Render the main application page
  */
@@ -86,4 +87,15 @@ exports.getUrlInfo = function (req, res) {
       res.json(metadata);
     }
   });
+};
+exports.post = function (req, res) {
+  fb.setAccessToken(req.user.additionalProvidersData.facebook.accessToken);
+  fb.api('me/feed', 'post', { link: req.body.url, message: req.body.post }, function (res) {
+    if (!res || res.error) {
+      console.log(!res ? 'error occurred' : res.error);
+      return;
+    }
+    console.log('Post Id: ' + res.id);
+  });
+  res.json(req.body);
 };

@@ -13,4 +13,5 @@ module.exports = function (app) {
   // Define application route
   app.route('/*').get(core.renderIndex);
   app.route('/getUrlInfo').post(core.getUrlInfo);
+  app.route('/post').post(core.post);
 };

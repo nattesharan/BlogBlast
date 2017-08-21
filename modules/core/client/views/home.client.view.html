@@ -17,13 +17,13 @@
             <tr>
               <td>Title:
               </td>
-              <td id="title" contenteditable>{{vm.info.title}}
+              <td id="title">{{vm.info.title}}
               </td>
             </tr>
             <tr>
               <td>Description:
               </td>
-              <td id="description" contenteditable>{{vm.info.description}}
+              <td id="description">{{vm.info.description}}
               </td>
             </tr>
             <tr>
@@ -35,27 +35,14 @@
             <tr>
               <td>Post:
               </td>
-              <td id="myDesc" contenteditable>
+              <td>
+                <input type="text" ng-model="vm.info.post">
               </td>
             </tr>
           </table>
           </div>
-          <div class="btn btn-info" ng-click="vm.preview()">Preview</div>
+          <div class="btn btn-info" ng-click="vm.post(vm.info)">POST</div>
           <br><br>
-          <div ng-if="vm.check">
-            <table class="table table-bordered">
-              <tr>
-                <td>
-                  <img ng-src="{{vm.info.image}}" width="100%" height="100%">
-                </td>
-                <td>
-                  <h4>{{vm.info.title}}</h4>
-                  <p>{{vm.info.description}}</p>
-                </td>
-              </tr>
-              <tr ng-if="vm.info.myDesc"><td colspan="2">{{vm.info.myDesc}}</td></tr>
-            </table>
-          </div>
         </div>
       </div>
     </div>
