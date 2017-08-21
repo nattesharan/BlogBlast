@@ -9,6 +9,7 @@
     var vm = this;
     vm.authentication = Authentication;
     vm.getInfo = getInfo;
+    vm.preview = false;
     function checkUrl(url) {
       var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
       return regexp.test(url);
@@ -22,7 +23,8 @@
             url: url
           }
         }).then(function success(response) {
-          console.log(response);
+          vm.info = response.data;
+          console.log(response.data);
         });
       } else {
         Notification.error({ message: 'Invalid Url', title: '<i class="glyphicon glyphicon-remove">', delay: 4000 });

@@ -7,8 +7,52 @@
           <h1>This is Home </h1>
         </div>
         <div ng-if="vm.authentication.user !== null">
-            <input type="text" size="40" ng-model="vm.url" />
-            <div class="btn btn-info" ng-click="vm.getInfo(vm.url)">Fetch</div>
+          <input type="text" size="40" ng-model="vm.url" />
+          <div class="btn btn-info" ng-click="vm.getInfo(vm.url)">Fetch</div>
+        </div>
+        <div ng-if="vm.info">
+          <br>
+          <table class="table table-striped table-bordered">
+            <tr>
+              <td>Title:
+              </td>
+              <td contenteditable>{{vm.info.title}}
+              </td>
+            </tr>
+            <tr>
+              <td>Description:
+              </td>
+              <td contenteditable>{{vm.info.description}}
+              </td>
+            </tr>
+            <tr>
+              <td>Image:
+              </td>
+              <td><img ng-src="{{vm.info.image}}">
+              </td>
+            </tr>
+            <tr>
+              <td>Post:
+              </td>
+              <td contenteditable>
+              </td>
+            </tr>
+          </table>
+          <div class="btn btn-info" ng-click="vm.preview = true">Preview</div>
+          <br><br>
+          <div ng-if="vm.preview">
+            <table class="table table-bordered">
+              <tr>
+                <td>
+                  <img ng-src="{{vm.info.image}}" width="100%" height="100%">
+                </td>
+                <td>
+                  <h4 class="card-title">{{vm.info.title}}</h4>
+                  <p class="card-text">{{vm.info.description}}</p>
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </div>
