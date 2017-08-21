@@ -44,7 +44,7 @@ a:hover .header-profile-image {
 p {
   font-family: 'didactgothic-regular';
 }
-@font-face {
+/* @font-face {
 font-family: 'didactgothic-regular';
 src: url('../../../../modules/core/client/fonts/didactgothic-regular.otf')  format('truetype');
-}
+} */
