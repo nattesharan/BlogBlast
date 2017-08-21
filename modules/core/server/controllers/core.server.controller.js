@@ -7,7 +7,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var FB = require('fb');
 var Twitter = require('twitter');
-var fb = new FB.Facebook({ appId: '1854872108172743', appSecret: '1325559e9cd7ac27c85e503dd38414c2' });
+var fb = new FB.Facebook({ appId: config.facebook.clientID, appSecret: config.facebook.clientSecret });
 /**
  * Render the main application page
  */
@@ -99,8 +99,8 @@ exports.post = function (req, res) {
     console.log('Post Id: ' + res.id);
   });
   var client = new Twitter({
-    consumer_key: 'xzJUpDP4AoAL3KiOcSFnLgorP',
-    consumer_secret: '0d8r7B5d0VOqCuy0B7B8nhLfwGMLW2zQ3S55VR2Ht7qRMsW45j',
+    consumer_key: config.twitter.clientID,
+    consumer_secret: config.twitter.clientSecret,
     access_token_key: req.user.additionalProvidersData.twitter.token,
     access_token_secret: req.user.additionalProvidersData.twitter.tokenSecret
   });
