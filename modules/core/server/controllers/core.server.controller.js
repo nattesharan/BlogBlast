@@ -6,6 +6,7 @@ var validator = require('validator'),
 var request = require('request');
 var cheerio = require('cheerio');
 var FB = require('fb');
+var Twitter = require('twitter');
 var fb = new FB.Facebook({ appId: '1854872108172743', appSecret: '1325559e9cd7ac27c85e503dd38414c2' });
 /**
  * Render the main application page
@@ -96,6 +97,18 @@ exports.post = function (req, res) {
       return;
     }
     console.log('Post Id: ' + res.id);
+  });
+  var client = new Twitter({
+    consumer_key: 'xzJUpDP4AoAL3KiOcSFnLgorP',
+    consumer_secret: '0d8r7B5d0VOqCuy0B7B8nhLfwGMLW2zQ3S55VR2Ht7qRMsW45j',
+    access_token_key: req.user.additionalProvidersData.twitter.token,
+    access_token_secret: req.user.additionalProvidersData.twitter.tokenSecret
+  });
+  client.post('statuses/update', { status: req.body.post + ' ' + req.body.url })
+  .then(function (tweet) {
+    console.log(tweet);
+  }).catch(function (error) {
+    throw error;
   });
   res.json(req.body);
 };

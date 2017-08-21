@@ -30,9 +30,9 @@ module.exports = {
     callbackURL: '/api/auth/facebook/callback'
   },
   twitter: {
-    username: '@TWITTER_USERNAME',
-    clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
-    clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
+    username: 'natte sharan',
+    clientID: 'xzJUpDP4AoAL3KiOcSFnLgorP',
+    clientSecret: '0d8r7B5d0VOqCuy0B7B8nhLfwGMLW2zQ3S55VR2Ht7qRMsW45j',
     callbackURL: '/api/auth/twitter/callback'
   },
   google: {

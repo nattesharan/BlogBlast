@@ -19,7 +19,7 @@
         url: '/post',
         data: info
       }).then(function success(response) {
-        Notification.success({ message: 'Successfully Posted ', delay: '3500' });
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Successfully Posted!' });
         vm.url = '';
         vm.info = '';
       });
