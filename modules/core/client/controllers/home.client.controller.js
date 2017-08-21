@@ -4,21 +4,26 @@
   angular
     .module('core')
     .controller('HomeController', HomeController);
-  HomeController.$inject = ['Authentication', 'Notification'];
-  function HomeController(Authentication, Notification) {
+  HomeController.$inject = ['Authentication', 'Notification', '$http'];
+  function HomeController(Authentication, Notification, $http) {
     var vm = this;
     vm.authentication = Authentication;
     vm.getInfo = getInfo;
-    function checkUrl(data) {
-      var expression = /((ftp|http|https?):\/\/)?(www\.)?[a-z0-9\-\.]{3,}\.[a-z]{3}$/;
-      console.log(expression.test(data));
-      // return expression.test(data);
+    function checkUrl(url) {
+      var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+      return regexp.test(url);
     }
     function getInfo(url) {
       if (checkUrl(url)) {
-
+        $http({
+          method: 'POST',
+          url: '/getUrlInfo',
+          data: {
+            url: url
+          }
+        });
       } else {
-        Notification.error({ message: 'invalid url', delay: 3000 });
+        Notification.error({ message: 'Invalid Url', title: '<i class="glyphicon glyphicon-remove">', delay: 4000 });
       }
     }
   }

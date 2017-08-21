@@ -61,3 +61,6 @@ exports.renderNotFound = function (req, res) {
     }
   });
 };
+exports.getUrlInfo = function (req, res) {
+  console.log(req.body);
+};
