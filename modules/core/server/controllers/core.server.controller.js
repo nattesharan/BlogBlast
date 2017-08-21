@@ -68,18 +68,22 @@ exports.getUrlInfo = function (req, res) {
     if (!error && response.statusCode === 200) {
       var $ = cheerio.load(html);
       var metadata = {};
-      var title = $('meta[name="og:title"]').attr('content');
-      if (title === undefined)
-        title = $('meta[property="og:title"]').attr('content');
-      if (title === undefined)
-        title = $('meta[name="title"]').attr('content');
-      var description = $('meta[name="og:description"]').attr('content');
-      if (description === undefined)
-        description = $('meta[property="og:description"]').attr('content');
-      if (description === undefined)
-        description = $('meta[name="description"]').attr('content');
-      console.log(title);
-      console.log(description);
+      metadata.title = $('meta[name="og:title"]').attr('content');
+      if (metadata.title === undefined)
+        metadata.title = $('meta[property="og:title"]').attr('content');
+      if (metadata.title === undefined)
+        metadata.title = $('meta[name="title"]').attr('content');
+      metadata.description = $('meta[name="og:description"]').attr('content');
+      if (metadata.description === undefined)
+        metadata.description = $('meta[property="og:description"]').attr('content');
+      if (metadata.description === undefined)
+        metadata.description = $('meta[name="description"]').attr('content');
+      metadata.image = $('meta[name="og:image"]').attr('content');
+      if (metadata.image === undefined)
+        metadata.image = $('meta[property="og:image"]').attr('content');
+      if (metadata.image === undefined)
+        metadata.image = $('meta[name="image"]').attr('content');
+      res.send(metadata);
     }
   });
 };
