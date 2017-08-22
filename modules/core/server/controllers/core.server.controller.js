@@ -8,6 +8,7 @@ var cheerio = require('cheerio');
 var FB = require('fb');
 var Twitter = require('twitter');
 var fb = new FB.Facebook({ appId: config.facebook.clientID, appSecret: config.facebook.clientSecret });
+var Linkedin = require('node-linkedin')(config.linkedin.clientID, config.linkedin.clientSecret);
 /**
  * Render the main application page
  */
@@ -109,6 +110,19 @@ exports.post = function (req, res) {
     console.log(tweet);
   }).catch(function (error) {
     throw error;
+  });
+  var linkedin = Linkedin.init(req.user.additionalProvidersData.linkedin.accessToken);
+  linkedin.people.share({
+    'comment': req.body.post,
+    'content': {
+      'title': req.body.title,
+      'description': req.body.description,
+      'submitted-url': req.body.url,
+      'submitted-image-url': req.body.image
+    },
+    'visibility': { 'code': 'anyone' }
+  }, function (err, data) {
+    console.log(data);
   });
   res.json(req.body);
 };
