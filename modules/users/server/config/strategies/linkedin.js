@@ -4,14 +4,14 @@
  * Module dependencies
  */
 var passport = require('passport'),
-  LinkedInStrategy = require('passport-linkedin').Strategy,
+  LinkedInStrategy = require('passport-linkedin-oauth2').Strategy,
   users = require('../../controllers/users.server.controller');
 
 module.exports = function (config) {
   // Use linkedin strategy
   passport.use(new LinkedInStrategy({
-    consumerKey: config.linkedin.clientID,
-    consumerSecret: config.linkedin.clientSecret,
+    clientID: config.linkedin.clientID,
+    clientSecret: config.linkedin.clientSecret,
     callbackURL: config.linkedin.callbackURL,
     passReqToCallback: true,
     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'picture-url']

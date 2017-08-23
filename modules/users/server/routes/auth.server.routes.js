@@ -42,7 +42,9 @@ module.exports = function (app) {
   app.route('/api/auth/linkedin').get(users.oauthCall('linkedin', {
     scope: [
       'r_basicprofile',
-      'r_emailaddress'
+      'r_emailaddress',
+      'w_share',
+      'rw_company_admin'
     ]
   }));
   app.route('/api/auth/linkedin/callback').get(users.oauthCallback('linkedin'));
