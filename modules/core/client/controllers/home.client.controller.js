@@ -9,7 +9,7 @@
     var vm = this;
     vm.authentication = Authentication;
     vm.getInfo = getInfo;
-    vm.check = false;
+    // vm.check = false;
     vm.preview = preview;
     vm.post = post;
     function post(info) {
@@ -38,17 +38,16 @@
           }
         }).then(function success(response) {
           vm.info = response.data;
-          // console.log(response.data);
         });
       } else {
         Notification.error({ message: 'Invalid Url', title: '<i class="glyphicon glyphicon-remove">', delay: 4000 });
       }
     }
     function preview() {
-      vm.check = true;
-      vm.info.title = document.getElementById('title').innerHTML;
-      vm.info.description = document.getElementById('description').innerHTML;
-      vm.info.myDesc = document.getElementById('myDesc').innerHTML;
+      // vm.check = true;
+      // vm.info.title = document.getElementById('title').innerHTML;
+      // vm.info.description = document.getElementById('description').innerHTML;
+      // vm.info.myDesc = document.getElementById('myDesc').innerHTML;
     }
   }
 }());

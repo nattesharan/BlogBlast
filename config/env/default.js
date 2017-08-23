@@ -40,8 +40,8 @@ module.exports = {
     p3p: 'ABCDEF',
     xssProtection: true
   },
-  logo: 'modules/core/client/img/brand/vitwit.png',
-  favicon: 'modules/core/client/img/brand/vitwit.png',
+  logo: 'modules/core/client/img/brand/VitWit.png',
+  favicon: 'modules/core/client/img/brand/VitWit.png',
   illegalUsernames: ['meanjs', 'administrator', 'password', 'admin', 'user',
     'unknown', 'anonymous', 'null', 'undefined', 'api'
   ],

@@ -35,12 +35,10 @@
   {{#each cssFiles}}<link rel="stylesheet" href="/{{this}}">{{/each}}
 </head>
 
-<body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+<body class="ng-cloak" style="background-color:#e6f2ff">
+   <!-- <header ng-include="'/modules/core/client/views/header.client.view.html'"></header>  -->
   <section class="content">
-    <section class="container">
       {{{block "content"}}}
-    </section>
   </section>
 
   <noscript>

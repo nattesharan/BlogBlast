@@ -1,50 +1,52 @@
-<section>
+<header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top"></header>
   <br>
-  <div class="well">
-    <div class="row">
-      <div class="col-md-offset-3 col-md-6">
-        <div ng-if="vm.authentication.user === null">
-          <h1>This is Home </h1>
-        </div>
-        <div ng-if="vm.authentication.user !== null">
-          <input type="text" size="40" ng-model="vm.url" />
-          <div class="btn btn-info" ng-click="vm.getInfo(vm.url)">Fetch</div>
+  <br>
+  <br>
+  <div ng-if="vm.authentication.user === null">
+    <h3 style="text-align:center">Signn to get data</h3>
+  </div>
+  <div class="row">
+    <div ng-if="vm.authentication.user !== null">
+      <div class="container">
+        <div class=" w-example ">
+          <input class="col-md-offset-3 col-md-5" type="text" ng-model="vm.url" />
+          <div class="btn btn-info" ng-click="vm.getInfo(vm.url)">Fetch Data</div>
         </div>
         <div ng-if="vm.info">
           <br>
-          <div class="form-group">
-          <table class="table table-striped table-bordered">
-            <tr>
-              <td>Title:
-              </td>
-              <td id="title">{{vm.info.title}}
-              </td>
-            </tr>
-            <tr>
-              <td>Description:
-              </td>
-              <td id="description">{{vm.info.description}}
-              </td>
-            </tr>
-            <tr>
-              <td>Image:
-              </td>
-              <td><img ng-src="{{vm.info.image}}">
-              </td>
-            </tr>
-            <tr>
-              <td>Post:
-              </td>
-              <td>
-                <input type="text" ng-model="vm.info.post">
-              </td>
-            </tr>
-          </table>
+          <div class="w-example table-responsive form-group">
+            <table class="table table-striped table-hover table-bordered" width="100%">
+              <tr>
+                <td><b>Title:</b>
+                </td>
+                <td id="title">{{vm.info.title}}
+                </td>
+              </tr>
+              <tr>
+                <td><b>Description:</b>
+                </td>
+                <td id="description">{{vm.info.description}}
+                </td>
+              </tr>
+              <tr>
+                <td><b>Image:</b>
+                </td>
+                <td><img ng-src="{{vm.info.image}}">
+                </td>
+              </tr>
+              <tr>
+                <td><b>Post:</b>
+                </td>
+                <td>
+                  <textarea class="form-control" ng-model="vm.info.post"></textarea>
+                </td>
+              </tr>
+            </table>
           </div>
-          <div class="btn btn-info" ng-click="vm.post(vm.info)">POST</div>
+          <div style="text-align:center" class="btn btn-info" ng-click="vm.post(vm.info)">POST</div>
           <br><br>
+          <div>
         </div>
-      </div>
     </div>
   </div>
 </section>

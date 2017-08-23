@@ -1,5 +1,9 @@
+<header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top"></header>
 <div>
-  <h3 class="col-xs-12 text-center">Or with your account</h3>
+  <br>
+  <br>
+  <h3 class="col-md-12 text-center">Sign in using your social accounts</h3>  
+  <h3 class="col-xs-12 text-center">Or with your account</h3><br><br><br>
   <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
     <form name="vm.userForm" ng-submit="vm.signin(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
@@ -22,8 +26,6 @@
         </div>
         <div class="text-center form-group">
           <button type="submit" class="btn btn-primary">Sign in</button>
-          &nbsp; or&nbsp;
-          <a ui-sref="authentication.signup">Sign up</a>
         </div>
         <div class="text-center forgot-password">
           <a ui-sref="password.forgot">Forgot your password?</a>
