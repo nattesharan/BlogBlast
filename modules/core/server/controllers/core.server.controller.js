@@ -95,45 +95,45 @@ exports.getUrlInfo = function (req, res) {
   });
 };
 exports.post = function (req, res) {
-  // if (req.user.additionalProvidersData.facebook !== undefined) {
-  //   fb.setAccessToken(req.user.additionalProvidersData.facebook.accessToken);
-  //   fb.api('me/feed', 'post', { link: req.body.url, message: req.body.post }, function (res) {
-  //     if (!res || res.error) {
-  //       console.log(!res ? 'error occurred' : res.error);
-  //       return;
-  //     }
-  //     console.log('Post Id: ' + res.id);
-  //   });
-  // }
-  // if (req.user.additionalProvidersData.twitter !== undefined) {
-  //   var client = new Twitter({
-  //     consumer_key: config.twitter.clientID,
-  //     consumer_secret: config.twitter.clientSecret,
-  //     access_token_key: req.user.additionalProvidersData.twitter.token,
-  //     access_token_secret: req.user.additionalProvidersData.twitter.tokenSecret
-  //   });
-  //   client.post('statuses/update', { status: req.body.post + ' ' + req.body.url })
-  //   .then(function (tweet) {
-  //     console.log(tweet);
-  //   }).catch(function (error) {
-  //     throw error;
-  //   });
-  // }
-  // if (req.user.additionalProvidersData.linkedin !== undefined) {
-  //   var linkedin = Linkedin.init(req.user.additionalProvidersData.linkedin.accessToken);
-  //   linkedin.people.share({
-  //     'comment': req.body.post,
-  //     'content': {
-  //       'title': req.body.title,
-  //       'description': req.body.description,
-  //       'submitted-url': req.body.url,
-  //       'submitted-image-url': req.body.image
-  //     },
-  //     'visibility': { 'code': 'anyone' }
-  //   }, function (err, data) {
-  //     console.log(data);
-  //   });
-  // }
+  if (req.user.additionalProvidersData.facebook !== undefined) {
+    fb.setAccessToken(req.user.additionalProvidersData.facebook.accessToken);
+    fb.api('me/feed', 'post', { link: req.body.url, message: req.body.post }, function (res) {
+      if (!res || res.error) {
+        console.log(!res ? 'error occurred' : res.error);
+        return;
+      }
+      console.log('Post Id: ' + res.id);
+    });
+  }
+  if (req.user.additionalProvidersData.twitter !== undefined) {
+    var client = new Twitter({
+      consumer_key: config.twitter.clientID,
+      consumer_secret: config.twitter.clientSecret,
+      access_token_key: req.user.additionalProvidersData.twitter.token,
+      access_token_secret: req.user.additionalProvidersData.twitter.tokenSecret
+    });
+    client.post('statuses/update', { status: req.body.post + ' ' + req.body.url })
+    .then(function (tweet) {
+      console.log(tweet);
+    }).catch(function (error) {
+      throw error;
+    });
+  }
+  if (req.user.additionalProvidersData.linkedin !== undefined) {
+    var linkedin = Linkedin.init(req.user.additionalProvidersData.linkedin.accessToken);
+    linkedin.people.share({
+      'comment': req.body.post,
+      'content': {
+        'title': req.body.title,
+        'description': req.body.description,
+        'submitted-url': req.body.url,
+        'submitted-image-url': req.body.image
+      },
+      'visibility': { 'code': 'anyone' }
+    }, function (err, data) {
+      console.log(data);
+    });
+  }
   if (req.user.additionalProvidersData.google !== undefined) {
     oauth2Client.setCredentials({
       access_token: req.user.additionalProvidersData.google.accessToken
