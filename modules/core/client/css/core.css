@@ -65,6 +65,15 @@ a:hover .header-profile-image {
   margin:20px 0;
   padding:16px;
 }
+body {
+  background-attachment: scroll;
+  background-image: url("../../../../modules/core/client/img/brand/blog-banner.png") ;
+  background-repeat: no-repeat;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% auto;
+}
 /* p {
   font-family: 'Play-Regular';
 }

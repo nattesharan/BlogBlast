@@ -55,15 +55,17 @@ label {
 ul {
   font-family: 'Play-Regular';  
 }
+/* csslint ignore:start */
  @font-face {
   font-family: 'Play-Regular';
   src: url('../../../../modules/core/client/fonts/Play-Regular.ttf')  format('truetype');
 }
  @font-face {
   font-family: 'Sanchezregular';
-  src: url('../../../../modules/core/client/fonts/Sanchezregular.otf')  format('truetype');
+  src: url('../../../../modules/core/client/fonts/Sanchezregular.otf')  format('opentype');
  }
  @font-face {
   font-family: 'didactgothic-regular';
-  src: url('../../../../modules/core/client/fonts/didactgothic-regular.otf')  format('truetype');
+  src: url('../../../../modules/core/client/fonts/didactgothic-regular.otf')  format('opentype');
  }
+/* csslint ignore:end */
