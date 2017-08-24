@@ -60,19 +60,24 @@ a:hover .header-profile-image {
    background-color: #4080bf;
    color: #fff;
 }
+/* csslint ignore:start */
 .w-example{
+  background-color: rgba(237,237,237,0.5);
   box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
   margin:20px 0;
   padding:16px;
 }
+/* csslint ignore:end */
 body {
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-image: url("../../../../modules/core/client/img/brand/blog-banner.png") ;
+  background-position: center bottom;
   background-repeat: no-repeat;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
-  background-size: 100% auto;
+  background-size: cover;
+  overflow-x: hidden;
 }
 /* p {
   font-family: 'Play-Regular';
