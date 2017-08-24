@@ -33,7 +33,11 @@ module.exports = function (app) {
   app.route('/api/auth/google').get(users.oauthCall('google', {
     scope: [
       'https://www.googleapis.com/auth/userinfo.profile',
-      'https://www.googleapis.com/auth/userinfo.email'
+      'https://www.googleapis.com/auth/userinfo.email',
+      'https://www.googleapis.com/auth/plus.login',
+      'https://www.googleapis.com/auth/plus.me',
+      'https://www.googleapis.com/auth/plus.stream.read',
+      'https://www.googleapis.com/auth/plus.stream.write'
     ]
   }));
   app.route('/api/auth/google/callback').get(users.oauthCallback('google'));

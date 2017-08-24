@@ -9,6 +9,10 @@ var FB = require('fb');
 var Twitter = require('twitter');
 var fb = new FB.Facebook({ appId: config.facebook.clientID, appSecret: config.facebook.clientSecret });
 var Linkedin = require('node-linkedin')(config.linkedin.clientID, config.linkedin.clientSecret);
+var google = require('googleapis');
+var plus = google.plus('v1');
+var OAuth2 = google.auth.OAuth2;
+var oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret);
 /**
  * Render the main application page
  */
@@ -128,6 +132,14 @@ exports.post = function (req, res) {
       'visibility': { 'code': 'anyone' }
     }, function (err, data) {
       console.log(data);
+    });
+  }
+  if (req.user.additionalProvidersData.google !== undefined) {
+    oauth2Client.setCredentials({
+      access_token: req.user.additionalProvidersData.google.accessToken
+    });
+    plus.people.get({ userId: 'me', auth: oauth2Client }, function (err, response) {
+      console.log(response);
     });
   }
   res.json(req.body);
