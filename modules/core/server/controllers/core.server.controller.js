@@ -11,6 +11,7 @@ var fb = new FB.Facebook({ appId: config.facebook.clientID, appSecret: config.fa
 var Linkedin = require('node-linkedin')(config.linkedin.clientID, config.linkedin.clientSecret);
 var google = require('googleapis');
 var plus = google.plus('v1');
+var plusDomains = google.plusDomains('v1');
 var OAuth2 = google.auth.OAuth2;
 var oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret);
 /**
@@ -139,6 +140,18 @@ exports.post = function (req, res) {
       access_token: req.user.additionalProvidersData.google.accessToken
     });
     plus.people.get({ userId: 'me', auth: oauth2Client }, function (err, response) {
+      console.log(response);
+    });
+    plusDomains.activities.insert({ userId: 'me', auth: oauth2Client, 'object': {
+      originalContent: 'Happy Monday! #caseofthemondays'
+    },
+      access: {
+        items: [{
+          type: 'domain'
+        }],
+        domainRestricted: true
+      }
+    }, function (response) {
       console.log(response);
     });
   }
