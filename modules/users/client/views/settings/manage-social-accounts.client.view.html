@@ -51,9 +51,17 @@
     </div>
     <div class="social-account-container" ng-hide="vm.isConnectedSocialAccount('pinterest')">
       <a href="" ng-click="vm.callOauthProvider('/api/auth/pinterest')">
-        <img class="social-button" ng-src="/modules/users/client/img/buttons/pinterest .png">
+        <img class="social-button" ng-src="/modules/users/client/img/buttons/pinterest.png">
         <span class="btn btn-success btn-add-remove-account-pinterest">
           <i class="glyphicon glyphicon-plus"></i>
+        </span>
+      </a>
+    </div>
+    <div class="social-account-container" ng-hide="vm.isConnectedSocialAccount('tumblr')">
+      <a href="" ng-click="vm.callOauthProvider('/api/auth/tumblr')">
+        <img class="social-button" ng-src="/modules/users/client/img/buttons/tumblr.png">
+        <span class="btn btn-success btn-add-remove-account">
+            <i class="glyphicon glyphicon-plus"></i>
         </span>
       </a>
     </div>
