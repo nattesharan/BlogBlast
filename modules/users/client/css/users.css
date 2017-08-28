@@ -8,10 +8,10 @@
   position: relative;
 }
 .btn {
-  font-family: 'Play-Regular';  
+  font-family: 'Play-Regular';
 }
 table {
-  font-family: 'didactgothic-regular';  
+  font-family: 'didactgothic-regular';
 }
 .btn-add-remove-account {
   pointer-events: none;
@@ -19,10 +19,16 @@ table {
   right: 10px;
   top: 10px;
 }
+.btn-add-remove-account-pinterest {
+	pointer-events: none;
+	position: absolute;
+	right: 5px;
+	top: 0;
+}
 .nav ul:hover{
    background-color: #fff;
    color: #4080bf;
-   
+
 }
 .user-profile-picture {
   max-height: 150px;
@@ -47,13 +53,13 @@ h3 {
   font-size: 190%;
 }
 input {
-  font-family: 'Play-Regular';  
+  font-family: 'Play-Regular';
 }
 label {
-  font-family: 'Play-Regular';  
+  font-family: 'Play-Regular';
 }
 ul {
-  font-family: 'Play-Regular';  
+  font-family: 'Play-Regular';
 }
 /* csslint ignore:start */
  @font-face {

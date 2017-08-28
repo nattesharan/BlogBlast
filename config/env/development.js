@@ -45,6 +45,11 @@ module.exports = {
     clientSecret: 'Ek84AYFGrai20dR1',
     callbackURL: '/api/auth/linkedin/callback'
   },
+  pinterest: {
+    clientID: '4919771808332262657',
+    clientSecret: 'bb88e59d8fcaee2fd400a5cdd446dbfe173b63c4fb5fc115c43acfa2cc0f657d',
+    callbackURL: '/api/auth/pinterest/callback'
+  },
   mailer: {
     from: process.env.MAILER_FROM || 'MAILER_FROM',
     options: {
