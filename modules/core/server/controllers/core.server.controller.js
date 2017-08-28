@@ -14,6 +14,7 @@ var plus = google.plus('v1');
 var plusDomains = google.plusDomains('v1');
 var OAuth2 = google.auth.OAuth2;
 var oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret);
+var PDK = require('node-pinterest');
 /**
  * Render the main application page
  */
@@ -106,33 +107,21 @@ exports.post = function (req, res) {
       console.log('Post Id: ' + res.id);
     });
   }
-  if (req.user.additionalProvidersData.twitter !== undefined) {
-    var client = new Twitter({
-      consumer_key: config.twitter.clientID,
-      consumer_secret: config.twitter.clientSecret,
-      access_token_key: req.user.additionalProvidersData.twitter.token,
-      access_token_secret: req.user.additionalProvidersData.twitter.tokenSecret
-    });
-    client.post('statuses/update', { status: req.body.post + ' ' + req.body.url })
-    .then(function (tweet) {
-      console.log(tweet);
-    }).catch(function (error) {
-      throw error;
-    });
-  }
-  if (req.user.additionalProvidersData.linkedin !== undefined) {
-    var linkedin = Linkedin.init(req.user.additionalProvidersData.linkedin.accessToken);
-    linkedin.people.share({
-      'comment': req.body.post,
-      'content': {
-        'title': req.body.title,
-        'description': req.body.description,
-        'submitted-url': req.body.url,
-        'submitted-image-url': req.body.image
-      },
-      'visibility': { 'code': 'anyone' }
-    }, function (err, data) {
-      console.log(data);
+  if (req.user.additionalProvidersData.pinterest !== undefined) {
+    var pinterest = PDK.init(req.user.additionalProvidersData.pinterest.accessToken);
+    pinterest.api('me/boards').then(function (json) {
+      console.log(json);
+      pinterest.api('pins', {
+        method: 'POST',
+        body: {
+          board: json.data[0].id, // grab the first board from the previous response
+          note: req.body.description,
+          link: req.body.url,
+          image_url: req.body.image
+        }
+      }).then(function (json) {
+        pinterest.api('me/pins').then(console.log);
+      });
     });
   }
   if (req.user.additionalProvidersData.google !== undefined) {
