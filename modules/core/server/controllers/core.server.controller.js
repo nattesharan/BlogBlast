@@ -15,6 +15,7 @@ var plusDomains = google.plusDomains('v1');
 var OAuth2 = google.auth.OAuth2;
 var oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret);
 var PDK = require('node-pinterest');
+var Tumblr = require('tumblrwks');
 /**
  * Render the main application page
  */
@@ -97,52 +98,100 @@ exports.getUrlInfo = function (req, res) {
   });
 };
 exports.post = function (req, res) {
-  if (req.user.additionalProvidersData.facebook !== undefined) {
-    fb.setAccessToken(req.user.additionalProvidersData.facebook.accessToken);
-    fb.api('me/feed', 'post', { link: req.body.url, message: req.body.post }, function (res) {
-      if (!res || res.error) {
-        console.log(!res ? 'error occurred' : res.error);
-        return;
-      }
-      console.log('Post Id: ' + res.id);
-    });
-  }
-  if (req.user.additionalProvidersData.pinterest !== undefined) {
-    var pinterest = PDK.init(req.user.additionalProvidersData.pinterest.accessToken);
-    pinterest.api('me/boards').then(function (json) {
-      console.log(json);
-      pinterest.api('pins', {
-        method: 'POST',
-        body: {
-          board: json.data[0].id, // grab the first board from the previous response
-          note: req.body.description,
-          link: req.body.url,
-          image_url: req.body.image
-        }
-      }).then(function (json) {
-        pinterest.api('me/pins').then(console.log);
+  // if (req.user.additionalProvidersData.facebook !== undefined) {
+  //   fb.setAccessToken(req.user.additionalProvidersData.facebook.accessToken);
+  //   fb.api('me/feed', 'post', { link: req.body.url, message: req.body.post }, function (res) {
+  //     if (!res || res.error) {
+  //       console.log(!res ? 'error occurred' : res.error);
+  //       return;
+  //     }
+  //     console.log('Post Id: ' + res.id);
+  //   });
+  // }
+  // if (req.user.additionalProvidersData.twitter !== undefined) {
+  //   var client = new Twitter({
+  //     consumer_key: config.twitter.clientID,
+  //     consumer_secret: config.twitter.clientSecret,
+  //     access_token_key: req.user.additionalProvidersData.twitter.token,
+  //     access_token_secret: req.user.additionalProvidersData.twitter.tokenSecret
+  //   });
+  //   client.post('statuses/update', { status: req.body.post + ' ' + req.body.url })
+  //   .then(function (tweet) {
+  //     console.log(tweet);
+  //   }).catch(function (error) {
+  //     throw error;
+  //   });
+  // }
+  // if (req.user.additionalProvidersData.linkedin !== undefined) {
+  //   var linkedin = Linkedin.init(req.user.additionalProvidersData.linkedin.accessToken);
+  //   linkedin.people.share({
+  //     'comment': req.body.post,
+  //     'content': {
+  //       'title': req.body.title,
+  //       'description': req.body.description,
+  //       'submitted-url': req.body.url,
+  //       'submitted-image-url': req.body.image
+  //     },
+  //     'visibility': { 'code': 'anyone' }
+  //   }, function (err, data) {
+  //     console.log(data);
+  //   });
+  // }
+  // if (req.user.additionalProvidersData.pinterest !== undefined) {
+  //   var pinterest = PDK.init(req.user.additionalProvidersData.pinterest.accessToken);
+  //   pinterest.api('me/boards').then(function (json) {
+  //     console.log(json);
+  //     pinterest.api('pins', {
+  //       method: 'POST',
+  //       body: {
+  //         board: json.data[0].id, // grab the first board from the previous response
+  //         note: req.body.description,
+  //         link: req.body.url,
+  //         image_url: req.body.image
+  //       }
+  //     }).then(function (json) {
+  //       pinterest.api('me/pins').then(console.log);
+  //     });
+  //   });
+  // }
+  // if (req.user.additionalProvidersData.google !== undefined) {
+  //   oauth2Client.setCredentials({
+  //     access_token: req.user.additionalProvidersData.google.accessToken
+  //   });
+  //   plus.people.get({ userId: 'me', auth: oauth2Client }, function (err, response) {
+  //     console.log(response);
+  //   });
+  //   plusDomains.activities.insert({ userId: 'me', auth: oauth2Client, 'object': {
+  //     originalContent: 'Happy Monday! #caseofthemondays'
+  //   },
+  //     access: {
+  //       items: [{
+  //         type: 'domain'
+  //       }],
+  //       domainRestricted: true
+  //     }
+  //   }, function (response) {
+  //     console.log(response);
+  //   });
+  // }
+  if (req.user.additionalProvidersData.tumblr !== undefined) {
+    var tumblr = new Tumblr(
+      {
+        consumerKey: config.tumblr.consumerKey,
+        consumerSecret: config.tumblr.consumerSecret,
+        accessToken: req.user.additionalProvidersData.tumblr.token,
+        accessSecret: req.user.additionalProvidersData.tumblr.tokenSecret
+      }, 'nattesharan.tumblr.com');
+    tumblr.post('/post', {
+      type: 'link',
+      title: req.body.title,
+      url: req.body.url,
+      photos: [request.body.image],
+      description: req.body.post }).then(function (json) {
+        console.log(json);
+      }, function (error) {
+        console.log(error);
       });
-    });
-  }
-  if (req.user.additionalProvidersData.google !== undefined) {
-    oauth2Client.setCredentials({
-      access_token: req.user.additionalProvidersData.google.accessToken
-    });
-    plus.people.get({ userId: 'me', auth: oauth2Client }, function (err, response) {
-      console.log(response);
-    });
-    plusDomains.activities.insert({ userId: 'me', auth: oauth2Client, 'object': {
-      originalContent: 'Happy Monday! #caseofthemondays'
-    },
-      access: {
-        items: [{
-          type: 'domain'
-        }],
-        domainRestricted: true
-      }
-    }, function (response) {
-      console.log(response);
-    });
   }
   res.json(req.body);
 };
