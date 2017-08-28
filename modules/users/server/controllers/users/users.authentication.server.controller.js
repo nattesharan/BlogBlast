@@ -152,6 +152,7 @@ exports.saveOAuthUserProfile = function (req, providerUserProfile, done) {
 
   // Find existing user with this provider account
   User.findOne(searchQuery, function (err, existingUser) {
+    // console.log('Search Query --->', searchQuery);
     if (err) {
       return done(err);
     }

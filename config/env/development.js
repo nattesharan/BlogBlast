@@ -50,6 +50,11 @@ module.exports = {
     clientSecret: 'bb88e59d8fcaee2fd400a5cdd446dbfe173b63c4fb5fc115c43acfa2cc0f657d',
     callbackURL: '/api/auth/pinterest/callback'
   },
+  tumblr: {
+    consumerKey: 'sRxttRfOMYU2W01piz2mhCdVmS0STsZ7esQ9HBwwMKcxAkePRZ',
+    consumerSecret: 'g8JdRgGJI0Q7hPLpD3TPjsfwOmNFEjtoca8MqZGcm9jeeIA0nQ',
+    callbackURL: '/api/auth/tumblr/callback'
+  },
   mailer: {
     from: process.env.MAILER_FROM || 'MAILER_FROM',
     options: {

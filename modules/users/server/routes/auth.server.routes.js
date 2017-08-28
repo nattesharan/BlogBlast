@@ -62,4 +62,7 @@ module.exports = function (app) {
     ]
   }));
   app.route('/api/auth/pinterest/callback').get(users.oauthCallback('pinterest'));
+
+  app.route('/api/auth/tumblr').get(users.oauthCall('tumblr'));
+  app.route('/api/auth/tumblr/callback').get(users.oauthCallback('tumblr'));
 };
