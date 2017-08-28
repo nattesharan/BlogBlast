@@ -122,10 +122,10 @@ exports.oauthCallback = function (strategy) {
  * Helper function to save or update a OAuth user profile
  */
 exports.saveOAuthUserProfile = function (req, providerUserProfile, done) {
+  // console.log(providerUserProfile);
   // Setup info and user objects
   var info = {};
   var user;
-
   // Set redirection path on session.
   // Do not redirect to a signin or signup page
   if (noReturnUrls.indexOf(req.session.redirect_to) === -1) {
