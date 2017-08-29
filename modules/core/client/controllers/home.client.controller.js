@@ -11,14 +11,14 @@
     vm.getInfo = getInfo;
     vm.preview = preview;
     vm.post = post;
-    vm.items = ['google', 'linkedin', 'facebook', 'twitter'];
+    vm.items = ['linkedin', 'twitter', 'pinterest', 'facebook', 'google', 'tumblr'];
     vm.selected = [];
     vm.status = [];
     vm.confirmAccounts = confirmAccounts;
 
     function confirmAccounts() {
       vm.confAcc = true;
-      // console.log(vm.selected);
+      console.log(vm.selected);
     }
     vm.toggle = function (item, list) {
       var idx = list.indexOf(item);
@@ -50,7 +50,7 @@
         vm.selected = vm.items.slice(0);
       }
     };
-    function post(info,selected) {
+    function post(info, selected) {
       info.url = vm.url;
       console.log(info);
       console.log(selected);
