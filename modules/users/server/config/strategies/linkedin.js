@@ -17,7 +17,6 @@ module.exports = function (config) {
     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'picture-url']
   },
   function (req, accessToken, refreshToken, profile, done) {
-    console.log("hello world");
     // Set the provider data and include tokens
     var providerData = profile._json;
     providerData.accessToken = accessToken;

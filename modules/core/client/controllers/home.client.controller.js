@@ -24,8 +24,7 @@
       var idx = list.indexOf(item);
       if (idx > -1) {
         list.splice(idx, 1);
-      }
-      else {
+      } else {
         list.push(item);
       }
     };
