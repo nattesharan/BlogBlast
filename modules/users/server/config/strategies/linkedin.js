@@ -21,7 +21,8 @@ module.exports = function (config) {
     var providerData = profile._json;
     providerData.accessToken = accessToken;
     providerData.refreshToken = refreshToken;
-
+    providerData.username = providerData.firstName + providerData.lastName;
+    providerData.imageURL = (providerData.pictureUrl) ? providerData.pictureUrl : req.user.profileImageURL;
     // Create the user OAuth profile
     var providerUserProfile = {
       firstName: profile.name.givenName,

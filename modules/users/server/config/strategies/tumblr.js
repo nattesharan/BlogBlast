@@ -13,10 +13,12 @@ module.exports = function (config) {
     passReqToCallback: true
   },
   function (req, token, tokenSecret, profile, done) {
+    console.log(req.user);
     var providerData = profile._json;
     providerData.token = token;
     providerData.tokenSecret = tokenSecret;
     providerData.username = profile.username;
+    providerData.imageURL = req.user.profileImageURL;
     var providerUserProfile = {
       provider: profile.provider,
       providerIdentifierField: 'username',

@@ -20,7 +20,8 @@ module.exports = function (config) {
     var providerData = profile._json;
     providerData.token = token;
     providerData.tokenSecret = tokenSecret;
-
+    providerData.username = providerData.screen_name;
+    providerData.imageURL = providerData.profile_image_url_https;
     // Create the user OAuth profile
     var displayName = profile.displayName.trim();
     var iSpace = displayName.indexOf(' '); // index of the whitespace following the firstName

@@ -48,7 +48,7 @@ module.exports = {
   pinterest: {
     clientID: '4919771808332262657',
     clientSecret: 'bb88e59d8fcaee2fd400a5cdd446dbfe173b63c4fb5fc115c43acfa2cc0f657d',
-    callbackURL: '/api/auth/pinterest/callback'
+    callbackURL: 'https://04fea48e.ngrok.io/api/auth/pinterest/callback'
   },
   tumblr: {
     consumerKey: 'sRxttRfOMYU2W01piz2mhCdVmS0STsZ7esQ9HBwwMKcxAkePRZ',
