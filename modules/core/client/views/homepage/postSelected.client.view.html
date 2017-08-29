@@ -1,4 +1,8 @@
 <div ng-if="!vm.confAcc">
+    <div ng-repeat="(providerName, providerData) in vm.authentication.user.additionalProvidersData" class="social-account-container">
+        {{providerData}}
+        <img class="social-button" ng-src="/modules/users/client/img/buttons/{{::providerName}}.png">
+    </div>
     <md-checkbox aria-label="Select All" ng-checked="vm.isChecked()" md-indeterminate="vm.isIndeterminate()" ng-click="vm.toggleAll()">
         <span ng-if="vm.isChecked()">Un-</span>Select All
     </md-checkbox>

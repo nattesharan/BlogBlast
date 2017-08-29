@@ -18,6 +18,8 @@ module.exports = function (config) {
     providerData.id = providerData.data.id;
     providerData.accessToken = accessToken;
     providerData.emails = profile.emails;
+    providerData.imageURL = req.user.profileImageURL;
+    providerData.username = providerData.data.first_name + ' ' + providerData.data.last_name;
     // providerData.refreshToken = refreshToken;
     var providerUserProfile = {
       provider: profile.provider,

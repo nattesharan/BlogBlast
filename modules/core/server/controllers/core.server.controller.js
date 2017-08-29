@@ -99,7 +99,7 @@ exports.getUrlInfo = function (req, res) {
 };
 exports.post = function (req, res) {
   console.log(req.body);
-  if (req.user.additionalProvidersData.facebook !== undefined) {
+  if (req.user.additionalProvidersData.facebook !== undefined && req.body.status.indexOf('facebook') !== -1) {
     fb.setAccessToken(req.user.additionalProvidersData.facebook.accessToken);
     fb.api('me/feed', 'post', { link: req.body.url, message: req.body.post }, function (res) {
       if (!res || res.error) {
@@ -109,7 +109,7 @@ exports.post = function (req, res) {
       console.log('Post Id: ' + res.id);
     });
   }
-  if (req.user.additionalProvidersData.twitter !== undefined) {
+  if (req.user.additionalProvidersData.twitter !== undefined && req.body.status.indexOf('twitter') !== -1) {
     var client = new Twitter({
       consumer_key: config.twitter.clientID,
       consumer_secret: config.twitter.clientSecret,
@@ -123,7 +123,7 @@ exports.post = function (req, res) {
       throw error;
     });
   }
-  if (req.user.additionalProvidersData.linkedin !== undefined) {
+  if (req.user.additionalProvidersData.linkedin !== undefined && req.body.status.indexOf('linkedin') !== -1) {
     var linkedin = Linkedin.init(req.user.additionalProvidersData.linkedin.accessToken);
     linkedin.people.share({
       'comment': req.body.post,
@@ -138,7 +138,7 @@ exports.post = function (req, res) {
       console.log(data);
     });
   }
-  if (req.user.additionalProvidersData.pinterest !== undefined) {
+  if (req.user.additionalProvidersData.pinterest !== undefined && req.body.status.indexOf('pinterest') !== -1) {
     var pinterest = PDK.init(req.user.additionalProvidersData.pinterest.accessToken);
     pinterest.api('me/boards').then(function (json) {
       console.log(json);
@@ -155,7 +155,7 @@ exports.post = function (req, res) {
       });
     });
   }
-  if (req.user.additionalProvidersData.google !== undefined) {
+  if (req.user.additionalProvidersData.google !== undefined && req.body.status.indexOf('google') !== -1) {
     oauth2Client.setCredentials({
       access_token: req.user.additionalProvidersData.google.accessToken
     });
@@ -175,7 +175,7 @@ exports.post = function (req, res) {
       console.log(response);
     });
   }
-  if (req.user.additionalProvidersData.tumblr !== undefined) {
+  if (req.user.additionalProvidersData.tumblr !== undefined && req.body.status.indexOf('tumblr') !== -1) {
     var tumblr = new Tumblr(
       {
         consumerKey: config.tumblr.consumerKey,

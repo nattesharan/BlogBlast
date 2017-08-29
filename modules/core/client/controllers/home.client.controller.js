@@ -18,7 +18,7 @@
 
     function confirmAccounts() {
       vm.confAcc = true;
-      console.log(vm.selected);
+      // console.log(vm.selected);
     }
     vm.toggle = function (item, list) {
       var idx = list.indexOf(item);
