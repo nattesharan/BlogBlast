@@ -33,6 +33,43 @@
         controller: 'HomeController',
         controllerAs: 'vm'
       })
+      .state('homepage', {
+        abstract: true,
+        url: '',
+        templateUrl: '/modules/core/client/views/homepage/homepage.client.view.html',
+        controller: 'HomeController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['user', 'admin']
+        }
+      })
+      .state('homepage.postall', {
+        url: '/postall',
+        templateUrl: '/modules/core/client/views/homepage/postAll.client.view.html',
+        controller: 'HomeController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Homepage'
+        }
+      })
+      .state('homepage.postselected', {
+        url: '/postselected',
+        templateUrl: '/modules/core/client/views/homepage/postSelected.client.view.html',
+        controller: 'HomeController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Homepage postselected'
+        }
+      })
+      .state('homepage.accounts', {
+        url: '/accounts',
+        templateUrl: '/modules/core/client/views/homepage/manage-social-accounts.client.view.html',
+        controller: 'SocialAccountsController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'homepage accounts'
+        }
+      })
       .state('not-found', {
         url: '/not-found',
         templateUrl: '/modules/core/client/views/404.client.view.html',

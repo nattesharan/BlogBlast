@@ -11,7 +11,8 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
         'public/lib/angular-aria/angular-aria.css',
-        'public/lib/angular-material/angular-material.css'
+        'public/lib/angular-material/angular-material.css',
+        'public/lib/font-awesome/css/font-awesome.css'
         // endbower
       ],
       js: [

@@ -1,0 +1,30 @@
+<header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top"></header>
+<section>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row">
+      <nav class="col-sm-3 col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li ui-sref-active="active">
+            <a ui-sref="homepage.accounts">Manage Social Accounts</a>
+          </li>
+          <li ui-sref-active="active">
+            <a ui-sref="homepage.postall">Post In All Accounts</a>
+          </li>
+          <li ui-sref-active="active">
+            <a ui-sref="homepage.postselected">Select Accounts</a>
+          </li>
+          <li>
+            <div ng-repeat="(providerName, providerData) in vm.user.additionalProvidersData" class="social-account-container">
+              {{::providerName}}
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="col-sm-9 col-md-8 homepage-view">
+        <div ui-view></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -9,15 +9,58 @@
     var vm = this;
     vm.authentication = Authentication;
     vm.getInfo = getInfo;
-    // vm.check = false;
     vm.preview = preview;
     vm.post = post;
-    function post(info) {
+    vm.items = ['google', 'linkedin', 'facebook', 'twitter'];
+    vm.selected = [];
+    vm.status = [];
+    vm.confirmAccounts = confirmAccounts;
+
+    function confirmAccounts() {
+      vm.confAcc = true;
+      console.log(vm.selected);
+    }
+    vm.toggle = function (item, list) {
+      var idx = list.indexOf(item);
+      if (idx > -1) {
+        list.splice(idx, 1);
+      }
+      else {
+        list.push(item);
+      }
+    };
+
+    vm.exists = function (item, list) {
+      return list.indexOf(item) > -1;
+    };
+
+    vm.isIndeterminate = function () {
+      return (vm.selected.length !== 0 &&
+        vm.selected.length !== vm.items.length);
+    };
+
+    vm.isChecked = function () {
+      return vm.selected.length === vm.items.length;
+    };
+
+    vm.toggleAll = function () {
+      if (vm.selected.length === vm.items.length) {
+        vm.selected = [];
+      } else if (vm.selected.length === 0 || vm.selected.length > 0) {
+        vm.selected = vm.items.slice(0);
+      }
+    };
+    function post(info,selected) {
       info.url = vm.url;
+      console.log(info);
+      console.log(selected);
       $http({
         method: 'POST',
         url: '/post',
-        data: info
+        data: {
+          info: info,
+          status: selected
+        }
       }).then(function success(response) {
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Successfully Posted!' });
         vm.url = '';

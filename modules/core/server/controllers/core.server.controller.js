@@ -98,6 +98,7 @@ exports.getUrlInfo = function (req, res) {
   });
 };
 exports.post = function (req, res) {
+  console.log(req.body);
   if (req.user.additionalProvidersData.facebook !== undefined) {
     fb.setAccessToken(req.user.additionalProvidersData.facebook.accessToken);
     fb.api('me/feed', 'post', { link: req.body.url, message: req.body.post }, function (res) {
