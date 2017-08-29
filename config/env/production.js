@@ -67,16 +67,15 @@ module.exports = {
     clientSecret: process.env.LINKEDIN_SECRET || 'APP_SECRET',
     callbackURL: '/api/auth/linkedin/callback'
   },
-  github: {
-    clientID: process.env.GITHUB_ID || 'APP_ID',
-    clientSecret: process.env.GITHUB_SECRET || 'APP_SECRET',
-    callbackURL: '/api/auth/github/callback'
+  pinterest: {
+    clientID: process.env.PINTEREST_ID || 'APP_ID',
+    clientSecret: process.env.PINTEREST_SECRET || 'APP_SECRET',
+    callbackURL: '/api/auth/pinterest/callback'
   },
-  paypal: {
-    clientID: process.env.PAYPAL_ID || 'CLIENT_ID',
-    clientSecret: process.env.PAYPAL_SECRET || 'CLIENT_SECRET',
-    callbackURL: '/api/auth/paypal/callback',
-    sandbox: false
+  tumblr: {
+    consumerKey: process.env.TUMBLR_KEY || 'CONSUMER_KEY',
+    consumerSecret: process.env.TUMBLR_SECRET || 'CONSUMER_SECRET',
+    callbackURL: '/api/auth/tumblr/callback'
   },
   mailer: {
     from: process.env.MAILER_FROM || 'MAILER_FROM',
