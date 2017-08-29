@@ -6,7 +6,7 @@
     <div class="row">
       <nav class="col-sm-3 col-md-3">
         <ul class="nav nav-pills nav-stacked">
-          <li ui-sref-active="active">
+          <li ui-sref-active="active" class="active">
             <a ui-sref="homepage.accounts">Manage Social Accounts</a>
           </li>
           <li ui-sref-active="active">
@@ -15,6 +15,15 @@
           <li ui-sref-active="active">
             <a ui-sref="homepage.postselected">Select Accounts</a>
           </li>
+          <!-- <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Connected Accounts<span class="caret"></span></a>
+            <ul class="dropdown-menu" ng-repeat="(providerName, providerData) in vm.authentication.user.additionalProvidersData" class="social-account-container">
+              <li>
+                {{providerName}}
+                <img class="header-profile-image" ng-src="{{providerData.imageURL}}">{{providerData.username}}
+              </li>
+            </ul>
+          </li> -->
           <li>
             <a>Connected Accounts</a>
             <div ng-repeat="(providerName, providerData) in vm.authentication.user.additionalProvidersData" class="social-account-container">
