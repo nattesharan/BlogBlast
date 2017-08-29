@@ -27,7 +27,7 @@
           <li>
             <a>Connected Accounts</a>
             <div ng-repeat="(providerName, providerData) in vm.authentication.user.additionalProvidersData" class="social-account-container">
-              {{providerName}}
+              <img class="header-profile-image" ng-src="/modules/users/client/img/buttons/{{providerName}}.png">
               <img class="header-profile-image" ng-src="{{providerData.imageURL}}">{{providerData.username}}
             </div>
           </li>
