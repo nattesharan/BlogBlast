@@ -14,9 +14,10 @@ module.exports = function (config) {
     clientSecret: config.linkedin.clientSecret,
     callbackURL: config.linkedin.callbackURL,
     passReqToCallback: true,
-    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'picture-url']
+    profileFields: ['id', 'first-name', 'last-name', 'email-address', 'picture-url', 'publicProfileUrl', 'numConnections']
   },
   function (req, accessToken, refreshToken, profile, done) {
+    // console.log(profile);
     // Set the provider data and include tokens
     var providerData = profile._json;
     providerData.accessToken = accessToken;
