@@ -16,10 +16,10 @@
     vm.status = [];
     vm.active = false;
     vm.confirmAccounts = confirmAccounts;
-
+    // console.log(vm.authentication.user.additionalProvidersData);
     function confirmAccounts() {
       vm.confAcc = true;
-      console.log(vm.selected);
+      // console.log(vm.selected);
     }
     vm.toggle = function (item, list) {
       var idx = list.indexOf(item);
@@ -52,8 +52,8 @@
     };
     function post(info, selected) {
       info.url = vm.url;
-      console.log(info);
-      console.log(selected);
+      // console.log(info);
+      // console.log(selected);
       $http({
         method: 'POST',
         url: '/post',

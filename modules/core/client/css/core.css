@@ -7,6 +7,9 @@
 .account-list:active{
   display:block;
 }
+.card-font{
+  color: #817D7D;
+}
 .content {
   margin-top: 50px;
 }

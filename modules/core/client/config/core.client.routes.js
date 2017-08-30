@@ -61,6 +61,15 @@
           pageTitle: 'Homepage postselected'
         }
       })
+      .state('homepage.connected', {
+        url: '/connected',
+        templateUrl: '/modules/core/client/views/homepage/connected.client.view.html',
+        controller: 'HomeController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Homepage connected'
+        }
+      })
       .state('homepage.accounts', {
         url: '/accounts',
         templateUrl: '/modules/core/client/views/homepage/manage-social-accounts.client.view.html',
