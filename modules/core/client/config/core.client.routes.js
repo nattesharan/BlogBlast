@@ -32,6 +32,16 @@
         templateUrl: '/modules/core/client/views/home.client.view.html',
         controller: 'HomeController',
         controllerAs: 'vm'
+
+      })
+      .state('homepage', {
+        url: '',
+        templateUrl: '/modules/core/client/views/homepage/homepage.client.view.html',
+        controller: 'HomeController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['user', 'admin']
+        }
       })
       .state('homepage.postall', {
         url: '/postall',

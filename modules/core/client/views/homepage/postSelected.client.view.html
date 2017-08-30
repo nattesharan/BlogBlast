@@ -1,20 +1,16 @@
+<br>
 <div ng-if="!vm.confAcc">
     <md-checkbox aria-label="Select All" ng-checked="vm.isChecked()" md-indeterminate="vm.isIndeterminate()" ng-click="vm.toggleAll()">
         <span ng-if="vm.isChecked()">Un-</span>Select All
     </md-checkbox>
-    <div ng-repeat="(providerName, providerData) in vm.user.additionalProvidersData" class="social-account-container">
-        <a href ng-click="vm.removeUserSocialAccount(providerName)">
-              <img class="social-button" ng-src="/modules/users/client/img/buttons/{{::providerName}}.png">
-              <span class="btn btn-danger btn-add-remove-account">
-                <i class="glyphicon glyphicon-trash"></i>
-              </span>
-        </a>
-    </div>
     <div class="nav-stacked" ng-repeat="(providerName, providerData) in vm.authentication.user.additionalProvidersData" class="social-account-container">
         <div>
-            <md-checkbox ng-checked="vm.exists(vm.items[$index], vm.selected)" ng-click="vm.toggle(vm.items[$index], vm.selected)">
-                <img class="header-profile-image" ng-src="/modules/users/client/img/buttons/{{providerName}}.png">
-                <img class="social-account-container" ng-src="{{providerData.imageURL}}">{{providerData.username}}
+            <md-checkbox ng-checked="vm.exists(providerName, vm.selected)" ng-click="vm.toggle(providerName, vm.selected)">
+                <div style="display:inline-block; position:relative;">
+                    <img class="social-account" ng-src="{{providerData.imageURL}}">
+                    <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/{{providerName}}.png">
+                </div>
+                {{providerData.username}}
             </md-checkbox>
         </div>
     </div>

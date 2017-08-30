@@ -14,6 +14,7 @@
     vm.items = ['linkedin', 'twitter', 'pinterest', 'facebook', 'google', 'tumblr'];
     vm.selected = [];
     vm.status = [];
+    vm.active = false;
     vm.confirmAccounts = confirmAccounts;
 
     function confirmAccounts() {

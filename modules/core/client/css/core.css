@@ -1,3 +1,12 @@
+.account-list{
+  display:none;
+}
+.accounts:hover ~ .account-list{
+  display:block;
+}
+.account-list:active{
+  display:block;
+}
 .content {
   margin-top: 50px;
 }
@@ -22,16 +31,7 @@
 a:hover .header-profile-image {
   opacity: 1;
 }
-.user-header-dropdown-toggle {
-  padding-bottom: 11px !important;
-  padding-top: 11px !important;
-}
-.user-primary-account {
-  font-size: 30px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
+
 .error-text {
   display: none;
 }
@@ -42,23 +42,47 @@ a:hover .header-profile-image {
   display: inline;
 }
 .navbar {
-   background-color:#336699;
-   color: #fff;
+   background-color:#fff;
+   color: #000;
 }
 .navbar a{
-   color: #fff;
+   color: #000;
 }
-.nav-li{
+/* .nav-li{
   padding-top: 15%;
-}
+} */
 .navbar li a:hover{
-   background-color: #4080bf;
-   color: #fff;
+   background-color: #ABAFB0;
+   color: #000;
    font-size: 120%;
 }
 .nav-li a:hover{
-   background-color: #4080bf;
-   color: #fff;
+   background-color: #ABAFB0;
+   color: #000;
+}
+.nav-tabs{
+  background-color: #272626;
+  color: #C5C3C3;
+  height: 1000px;
+}
+.nav-tabs ul{
+  background-color: #272626;
+  color: #C5C3C3;
+}
+.nav-tabs a{
+  background-color: #272626;
+  color: #C5C3C3;
+}
+.nav-tabs a:hover{
+  background-color: #C5C3C3;
+  color: #272626;
+}
+.social-account{
+  border-radius: 50%;
+  height: 50px;
+  margin-right: 5px;
+  opacity: 0.8;
+  width: 50px;    
 }
 /* csslint ignore:start */
 .w-example{
@@ -69,14 +93,14 @@ a:hover .header-profile-image {
 }
 /* csslint ignore:end */
 body {
-  background-attachment: fixed;
+  /* background-attachment: fixed;
   background-image: url("../../../../modules/core/client/img/brand/blog-banner.png") ;
   background-position: center bottom;
   background-repeat: no-repeat;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
   overflow-x: hidden;
 }
 /* p {
