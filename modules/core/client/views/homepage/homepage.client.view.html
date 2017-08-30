@@ -1,23 +1,24 @@
 <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top"></header>
 <section>
   <br>
-  <div class="row">
-    <div ng-include="'/modules/core/client/views/sidenav.client.view.html'"></div>
-    <nav class="col-sm-3 col-md-3"><br>
-      <ul class="nav nav-pills nav-stacked">
-        <li ui-serf-active="active">
-          <a ui-sref="homepage.accounts">Manage Social Accounts</a>
-        </li>
-        <li>
-          <a ui-sref="homepage.postall">Post In All Accounts</a>
-        </li>
-        <li>
-          <a ui-sref="homepage.postselected">Select Accounts</a>
-        </li>
-        <li>
-          <a ui-sref="homepage.connected">Connected Accounts</a>
-        </li>
-        <!-- <li class="lastitem">
+  <div class="container">
+    <div class="row">
+      <!-- <div ng-include="'/modules/core/client/views/sidenav.client.view.html'"></div> -->
+      <nav class="col-sm-3 col-md-3"><br>
+        <ul class="nav nav-pills nav-stacked">
+          <li ui-serf-active="active">
+            <a ui-sref="homepage.accounts">Manage Social Accounts</a>
+          </li>
+          <li>
+            <a ui-sref="homepage.postall">Post In All Accounts</a>
+          </li>
+          <li>
+            <a ui-sref="homepage.postselected">Select Accounts</a>
+          </li>
+          <li>
+            <a ui-sref="homepage.connected">Connected Accounts</a>
+          </li>
+          <!-- <li class="lastitem">
           <a class="accounts" href="">Connected Accounts</a>
           <ul class="account-list">
             <a href="#">
@@ -30,7 +31,7 @@
             </a>
           </ul>
         </li> -->
-        <li><a href="" ng-click="vm.active=!vm.active">Connected Accounts</a>
+          <!-- <li><a href="" ng-click="vm.active=!vm.active">Connected Accounts</a>
           <div ng-if="vm.active" class="navbar-stacked" ng-repeat="(providerName, providerData) in vm.authentication.user.additionalProvidersData"
             class="social-account-container">
             <div style="display:inline-block; position:relative;">
@@ -38,11 +39,12 @@
               <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/{{providerName}}.png">
             </div>{{providerData.username}}
           </div>
-        </li>
-      </ul>
-    </nav>
-    <div class="col-sm-7 col-md-7">
-      <div ui-view></div>
+        </li> -->
+        </ul>
+      </nav>
+      <div class="col-sm-9 col-md-9">
+        <div ui-view></div>
+      </div>
     </div>
   </div>
 </section>

@@ -1,7 +1,4 @@
 <br>
-<!-- <div class="navbar-stacked" ng-repeat="(providerName, providerData) in vm.authentication.user.additionalProvidersData" class="social-account-container"><b>{{providerName}}</b><br>{{providerData}}<br>
-</div> -->
-
 <!-- linkedin -->
 <a target="_blank" ng-if="vm.authentication.user.additionalProvidersData.linkedin" ng-href="{{vm.authentication.user.additionalProvidersData.linkedin.publicProfileUrl}}">
     <md-card class="col-md-5">
@@ -12,17 +9,15 @@
             </md-card-avatar>
             <md-card-header-text>
                 <span class="md-title">{{vm.authentication.user.additionalProvidersData.linkedin.username}}</span>
-                <span class="md-subhead">subhead</span>
             </md-card-header-text>
         </md-card-header>
-        <md-divider></md-divider>
+        <!-- <md-divider></md-divider>
         <md-card-title>
             <md-card-title-text class="card-font">
                 <span class="md-headline">{{vm.authentication.user.additionalProvidersData.linkedin.firstName}}
                 {{vm.authentication.user.additionalProvidersData.linkedin.lastName}}</span>
-                <!-- <span class="md-subhead">something</span> -->
-            </md-card-title-text>
-        </md-card-title>
+               </md-card-title-text>
+        </md-card-title> -->
         <!-- <md-card-actions layout="row" layout-align="start center">
         <md-button>Action 1</md-button>
         <md-button>Action 2</md-button>
@@ -36,7 +31,7 @@
         <md-card-content>
             <ul style="list-style-type: none;">
                 <li>
-                    <p class="card-font"><b>Email: </b> {{vm.authentication.user.additionalProvidersData.linkedin.emailAddress}}
+                    <p class="card-font"><b>Email: </b>{{vm.authentication.user.additionalProvidersData.linkedin.emailAddress}}
                     </p>
                 </li>
                 <li>
@@ -58,16 +53,16 @@
             </md-card-avatar>
             <md-card-header-text>
                 <span class="md-title">{{vm.authentication.user.additionalProvidersData.twitter.username}}</span>
-                <span class="md-subhead">subhead</span>
+                <span class="md-subhead">Tweets: {{vm.authentication.user.additionalProvidersData.twitter.statuses_count}}</span>
             </md-card-header-text>
         </md-card-header>
-        <md-divider></md-divider>
+        <!-- <md-divider></md-divider>
         <md-card-title>
             <md-card-title-text class="card-font">
                 <span class="md-headline">{{vm.authentication.user.additionalProvidersData.twitter.username}}</span>
             </md-card-title-text>
-        </md-card-title>
-        <md-divider></md-divider>
+        </md-card-title>-->
+        <md-divider></md-divider> 
         <md-card-content>
             <ul style="list-style-type: none;">
                 <li>
@@ -93,15 +88,14 @@
             </md-card-avatar>
             <md-card-header-text>
                 <span class="md-title">{{vm.authentication.user.additionalProvidersData.google.username}}</span>
-                <span class="md-subhead">subhead</span>
             </md-card-header-text>
         </md-card-header>
-        <md-divider></md-divider>
+        <!-- <md-divider></md-divider>
         <md-card-title>
             <md-card-title-text class="card-font">
                 <span class="md-headline">{{vm.authentication.user.additionalProvidersData.google.username}}</span>
             </md-card-title-text>
-        </md-card-title>
+        </md-card-title> -->
         <md-divider></md-divider>
         <md-card-content>
             <ul style="list-style-type: none;">
@@ -130,15 +124,14 @@
             </md-card-avatar>
             <md-card-header-text>
                 <span class="md-title">{{vm.authentication.user.additionalProvidersData.tumblr.username}}</span>
-                <span class="md-subhead">subhead</span>
             </md-card-header-text>
         </md-card-header>
-        <md-divider></md-divider>
+        <!-- <md-divider></md-divider>
         <md-card-title>
             <md-card-title-text class="card-font">
                 <span class="md-headline">{{vm.authentication.user.additionalProvidersData.tumblr.username}}</span>
             </md-card-title-text>
-        </md-card-title>
+        </md-card-title> -->
         <md-divider></md-divider>
         <md-card-content>
             <ul style="list-style-type: none;">
@@ -166,15 +159,15 @@
             </md-card-avatar>
             <md-card-header-text>
                 <span class="md-title">{{vm.authentication.user.additionalProvidersData.facebook.username}}</span>
-                <span class="md-subhead">subhead</span>
+                <span class="md-subhead">{{vm.authentication.user.additionalProvidersData.facebook.likes.data.length}}</span>
             </md-card-header-text>
         </md-card-header>
-        <md-divider></md-divider>
+        <!-- <md-divider></md-divider>
         <md-card-title>
             <md-card-title-text class="card-font">
                 <span class="md-headline">{{vm.authentication.user.additionalProvidersData.facebook.username}}</span>
             </md-card-title-text>
-        </md-card-title>
+        </md-card-title> -->
         <md-divider></md-divider>
         <md-card-content>
 
@@ -204,15 +197,14 @@
             </md-card-avatar>
             <md-card-header-text>
                 <span class="md-title">{{vm.authentication.user.additionalProvidersData.pinterest.username}}</span>
-                <span class="md-subhead">subhead</span>
             </md-card-header-text>
         </md-card-header>
-        <md-divider></md-divider>
+        <!-- <md-divider></md-divider>
         <md-card-title>
             <md-card-title-text class="card-font">
                 <span class="md-headline">{{vm.authentication.user.additionalProvidersData.pinterest.username}}</span>
             </md-card-title-text>
-        </md-card-title>
+        </md-card-title> -->
         <md-divider></md-divider>
         <md-card-content>
             <ul>
