@@ -101,7 +101,7 @@ exports.post = function (req, res) {
   console.log(req.body);
   if (req.user.additionalProvidersData.facebook !== undefined && req.body.status.indexOf('facebook') !== -1) {
     fb.setAccessToken(req.user.additionalProvidersData.facebook.accessToken);
-    fb.api('me/feed', 'post', { link: req.body.url, message: req.body.post }, function (res) {
+    fb.api('me/feed', 'post', { link: req.body.info.url, message: req.body.info.post }, function (res) {
       if (!res || res.error) {
         console.log(!res ? 'error occurred' : res.error);
         return;
@@ -116,7 +116,7 @@ exports.post = function (req, res) {
       access_token_key: req.user.additionalProvidersData.twitter.token,
       access_token_secret: req.user.additionalProvidersData.twitter.tokenSecret
     });
-    client.post('statuses/update', { status: req.body.post + ' ' + req.body.url })
+    client.post('statuses/update', { status: req.body.info.post + ' ' + req.body.info.url })
     .then(function (tweet) {
       console.log(tweet);
     }).catch(function (error) {
@@ -126,12 +126,12 @@ exports.post = function (req, res) {
   if (req.user.additionalProvidersData.linkedin !== undefined && req.body.status.indexOf('linkedin') !== -1) {
     var linkedin = Linkedin.init(req.user.additionalProvidersData.linkedin.accessToken);
     linkedin.people.share({
-      'comment': req.body.post,
+      'comment': req.body.info.post,
       'content': {
-        'title': req.body.title,
-        'description': req.body.description,
-        'submitted-url': req.body.url,
-        'submitted-image-url': req.body.image
+        'title': req.body.info.title,
+        'description': req.body.info.description,
+        'submitted-url': req.body.info.url,
+        'submitted-image-url': req.body.info.image
       },
       'visibility': { 'code': 'anyone' }
     }, function (err, data) {
@@ -146,9 +146,9 @@ exports.post = function (req, res) {
         method: 'POST',
         body: {
           board: json.data[0].id, // grab the first board from the previous response
-          note: req.body.description,
-          link: req.body.url,
-          image_url: req.body.image
+          note: req.body.info.description,
+          link: req.body.info.url,
+          image_url: req.body.info.image
         }
       }).then(function (json) {
         pinterest.api('me/pins').then(console.log);
@@ -185,10 +185,10 @@ exports.post = function (req, res) {
       }, 'nattesharan.tumblr.com');
     tumblr.post('/post', {
       type: 'link',
-      title: req.body.title,
-      url: req.body.url,
-      photos: [request.body.image],
-      description: req.body.post }).then(function (json) {
+      title: req.body.info.title,
+      url: req.body.info.url,
+      photos: [request.body.info.image],
+      description: req.body.info.post }).then(function (json) {
         console.log(json);
       }, function (error) {
         console.log(error);
