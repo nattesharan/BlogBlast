@@ -4,8 +4,8 @@
   angular
     .module('core')
     .controller('HomeController', HomeController);
-  HomeController.$inject = ['Authentication', 'Notification', '$http'];
-  function HomeController(Authentication, Notification, $http) {
+  HomeController.$inject = ['Authentication', 'Notification', '$http', '$mdSidenav'];
+  function HomeController(Authentication, Notification, $http, $mdSidenav) {
     var vm = this;
     vm.authentication = Authentication;
     vm.getInfo = getInfo;
@@ -16,6 +16,12 @@
     vm.status = [];
     vm.active = false;
     vm.confirmAccounts = confirmAccounts;
+    vm.toggleLeft = buildToggler('left');
+    function buildToggler(componentId) {
+      return function () {
+        $mdSidenav(componentId).toggle();
+      };
+    }
     // console.log(vm.authentication.user.additionalProvidersData);
     function confirmAccounts() {
       vm.confAcc = true;

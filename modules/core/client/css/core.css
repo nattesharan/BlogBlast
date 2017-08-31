@@ -104,7 +104,33 @@ body {
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-size: cover; */
-  overflow-x: hidden;
+  background-color: #f2f2f2;
+  overflow: auto;
+}
+html{
+  background-color: #f2f2f2;
+  overflow: auto;
+}
+/* .md-content{
+  background-color: #ADADAD;
+}
+.md-sidenav-left{
+  background-color: #ADADAD;
+  position: fixed;
+}
+.md-sidenav-left ul{
+  background-color: #ADADAD;
+} */
+.md-sidenav-left{
+  position: fixed;
+}
+.sidenavbar{
+  /* background-color: #222222; */
+  min-height: 100%;
+}
+.stuck{
+  height: auto;
+  overflow: auto;
 }
 /* p {
   font-family: 'Play-Regular';
