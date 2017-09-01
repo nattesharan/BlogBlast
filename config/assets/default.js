@@ -19,6 +19,7 @@ module.exports = {
         // bower:js
         'public/lib/angular/angular.js',
         'public/lib/angular-animate/angular-animate.js',
+        'public/lib/angular-bootstrap/ui-bootstrap.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/ng-file-upload/ng-file-upload.js',
         'public/lib/angular-messages/angular-messages.js',

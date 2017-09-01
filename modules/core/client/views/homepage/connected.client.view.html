@@ -1,177 +1,179 @@
 <br>
+<br>
 <!-- linkedin -->
-<a target="_blank" ng-if="vm.authentication.user.additionalProvidersData.linkedin" ng-href="{{vm.authentication.user.additionalProvidersData.linkedin.publicProfileUrl}}">
-    <md-card class="col-md-5">
-        <md-card-header>
-            <md-card-avatar>
-                <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.linkedin.imageURL}}" />
-                <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/linkedin.png">
-            </md-card-avatar>
-            <md-card-header-text>
-                <span class="md-title">{{vm.authentication.user.additionalProvidersData.linkedin.username}}</span>
-            </md-card-header-text>
-        </md-card-header>
-        <md-divider></md-divider>
-        <md-card-content>
-            <ul style="list-style-type: none;">
-                <li>
-                    <p class="card-font"><b>Email: </b>{{vm.authentication.user.additionalProvidersData.linkedin.emailAddress}}
-                    </p>
-                </li>
-                <li>
-                    <p class="card-font"><b>Followers: </b>{{vm.authentication.user.additionalProvidersData.linkedin.numConnections}}
-                    </p>
-                </li>
-            </ul>
-        </md-card-content>
-    </md-card>
-</a>
+<md-card class="col-md-5" ng-if="vm.authentication.user.additionalProvidersData.linkedin">
+    <md-card-header>
+        <md-card-avatar>
+            <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.linkedin.imageURL}}" />
+            <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/linkedin.png">
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title">{{vm.authentication.user.additionalProvidersData.linkedin.username}}</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-divider></md-divider>
+    <md-card-content>
+        <ul style="list-style-type: none;">
+            <li>
+                <p class="card-font"><b>Email: </b>{{vm.authentication.user.additionalProvidersData.linkedin.emailAddress}}
+                </p>
+            </li>
+            <li>
+                <p class="card-font"><b>Followers: </b>{{vm.authentication.user.additionalProvidersData.linkedin.numConnections}}
+                </p>
+            </li>
+        </ul>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="center">
+        <md-button class="md-raised md-primary md-hue-1 button-width" target="_blank" ng-href="{{vm.authentication.user.additionalProvidersData.linkedin.publicProfileUrl}}">View Profile</md-button>
+    </md-card-actions>
+</md-card>
 
 <!-- twitter -->
-<a target="_blank" ng-if="vm.authentication.user.additionalProvidersData.twitter" ng-href="https://twitter.com/{{vm.authentication.user.additionalProvidersData.twitter.username}}">
-    <md-card class="col-md-5">
-        <md-card-header>
-            <md-card-avatar>
-                <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.twitter.imageURL}}" />
-                <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/twitter.png">
-            </md-card-avatar>
-            <md-card-header-text>
-                <span class="md-title">{{vm.authentication.user.additionalProvidersData.twitter.username}}</span>
-                <span class="md-subhead">Tweets: {{vm.authentication.user.additionalProvidersData.twitter.statuses_count}}</span>
-            </md-card-header-text>
-        </md-card-header>
-        <md-divider></md-divider>
-        <md-card-content>
-            <ul style="list-style-type: none;">
-                <li>
-                    <p class="card-font"><b>Following : </b>{{vm.authentication.user.additionalProvidersData.twitter.friends_count}}<br>
-                    </p>
-                </li>
-                <li>
-                    <p class="card-font"><b>Followers : </b>{{vm.authentication.user.additionalProvidersData.twitter.followers_count}}<br>
-                    </p>
-                </li>
-            </ul>
-        </md-card-content>
-    </md-card>
-</a>
+<md-card class="col-md-5" ng-if="vm.authentication.user.additionalProvidersData.twitter">
+    <md-card-header>
+        <md-card-avatar>
+            <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.twitter.imageURL}}" />
+            <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/twitter.png">
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title">{{vm.authentication.user.additionalProvidersData.twitter.username}}</span>
+            <span class="md-subhead">Tweets: {{vm.authentication.user.additionalProvidersData.twitter.statuses_count}}</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-divider></md-divider>
+    <md-card-content>
+        <ul style="list-style-type: none;">
+            <li>
+                <p class="card-font"><b>Following : </b>{{vm.authentication.user.additionalProvidersData.twitter.friends_count}}<br>
+                </p>
+            </li>
+            <li>
+                <p class="card-font"><b>Followers : </b>{{vm.authentication.user.additionalProvidersData.twitter.followers_count}}<br>
+                </p>
+            </li>
+        </ul>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="center">
+        <md-button class="md-raised md-primary md-hue-1 button-width" target="_blank" ng-href="https://twitter.com/{{vm.authentication.user.additionalProvidersData.twitter.username}}">View Profile</md-button>
+    </md-card-actions>
+</md-card>
 
 <!-- google -->
-<a target="_blank" ng-if="vm.authentication.user.additionalProvidersData.google" ng-href="{{vm.authentication.user.additionalProvidersData.google.url}}">
-    <md-card class="col-md-5">
-        <md-card-header>
-            <md-card-avatar>
-                <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.google.imageURL}}" />
-                <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/google.png">
-            </md-card-avatar>
-            <md-card-header-text>
-                <span class="md-title">{{vm.authentication.user.additionalProvidersData.google.username}}</span>
-            </md-card-header-text>
-        </md-card-header>
-        <md-divider></md-divider>
-        <md-card-content>
-            <ul style="list-style-type: none;">
-                <li>
-                    <p class="card-font"><b>Email: </b> {{vm.authentication.user.additionalProvidersData.google.emails[0].value}}<br>
-                    </p>
-                </li>
-                <li>
-                    <p class="card-font"><b>Id : </b>{{vm.authentication.user.additionalProvidersData.google.id}}
-                    </p>
-                </li>
-            </ul>
-        </md-card-content>
-
-    </md-card>
-</a>
+<md-card class="col-md-5" ng-if="vm.authentication.user.additionalProvidersData.google">
+    <md-card-header>
+        <md-card-avatar>
+            <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.google.imageURL}}" />
+            <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/google.png">
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title">{{vm.authentication.user.additionalProvidersData.google.username}}</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-divider></md-divider>
+    <md-card-content>
+        <ul style="list-style-type: none;">
+            <li>
+                <p class="card-font"><b>Email: </b> {{vm.authentication.user.additionalProvidersData.google.emails[0].value}}<br>
+                </p>
+            </li>
+            <li>
+                <p class="card-font"><b>Id : </b>{{vm.authentication.user.additionalProvidersData.google.id}}
+                </p>
+            </li>
+        </ul>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="center">
+        <md-button class="md-raised md-primary md-hue-1 button-width" target="_blank" ng-href="{{vm.authentication.user.additionalProvidersData.google.url}}">View Profile</md-button>
+    </md-card-actions>
+</md-card>
 
 
 <!-- tumblr -->
-<a target="_blank" ng-if="vm.authentication.user.additionalProvidersData.tumblr" href="{{vm.authentication.user.additionalProvidersData.tumblr.response.user.blogs[0].url}}">
-    <md-card class="col-md-5">
-        <md-card-header>
-            <md-card-avatar>
-                <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.tumblr.imageURL}}" />
-                <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/tumblr.png">
-            </md-card-avatar>
-            <md-card-header-text>
-                <span class="md-title">{{vm.authentication.user.additionalProvidersData.tumblr.username}}</span>
-            </md-card-header-text>
-        </md-card-header>
-        <md-divider></md-divider>
-        <md-card-content>
-            <ul style="list-style-type: none;">
-                <li>
-                    <p class="card-font"><b>Followers: </b> {{vm.authentication.user.additionalProvidersData.tumblr.response.user.blogs[0].followers}}
-                    </p>
-                </li>
-                <li>
-                    <p class="card-font"><b>Following: </b>{{vm.authentication.user.additionalProvidersData.tumblr.response.user.following}}
-                    </p>
-                </li>
-            </ul>
-        </md-card-content>
-
-    </md-card>
-</a>
+<md-card class="col-md-5" ng-if="vm.authentication.user.additionalProvidersData.tumblr">
+    <md-card-header>
+        <md-card-avatar>
+            <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.tumblr.imageURL}}" />
+            <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/tumblr.png">
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title">{{vm.authentication.user.additionalProvidersData.tumblr.username}}</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-divider></md-divider>
+    <md-card-content>
+        <ul style="list-style-type: none;">
+            <li>
+                <p class="card-font"><b>Followers: </b> {{vm.authentication.user.additionalProvidersData.tumblr.response.user.blogs[0].followers}}
+                </p>
+            </li>
+            <li>
+                <p class="card-font"><b>Following: </b>{{vm.authentication.user.additionalProvidersData.tumblr.response.user.following}}
+                </p>
+            </li>
+        </ul>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="center">
+        <md-button class="md-raised md-primary md-hue-1 button-width" target="_blank" href="{{vm.authentication.user.additionalProvidersData.tumblr.response.user.blogs[0].url}}">View Profile</md-button>
+    </md-card-actions>
+</md-card>
 
 <!-- facebook -->
-<a target="_blank" ng-if="vm.authentication.user.additionalProvidersData.facebook" ng-href="https://www.facebook.com/{{vm.authentication.user.additionalProvidersData.facebook.id}}">
-    <md-card class="col-md-5">
-        <md-card-header>
-            <md-card-avatar>
-                <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.facebook.imageURL}}" />
-                <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/facebook.png">
-            </md-card-avatar>
-            <md-card-header-text>
-                <span class="md-title">{{vm.authentication.user.additionalProvidersData.facebook.username}}</span>
-                <span class="md-subhead">{{vm.authentication.user.additionalProvidersData.facebook.likes.data.length}}</span>
-            </md-card-header-text>
-        </md-card-header>
-        <md-divider></md-divider>
-        <md-card-content>
-
-            <ul>
-                <li>
-                    <p class="card-font"><b>Email: </b>{{vm.authentication.user.additionalProvidersData.facebook.email}}
-                    </p>
-                </li>
-                <li>
-                    <p class="card-font"><b>Friends : </b>{{vm.authentication.user.additionalProvidersData.facebook.friends.summary.total_count}}
-                    </p>
-                </li>
-            </ul>
-        </md-card-content>
-
-    </md-card>
-</a>
+<md-card class="col-md-5" ng-if="vm.authentication.user.additionalProvidersData.facebook">
+    <md-card-header>
+        <md-card-avatar>
+            <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.facebook.imageURL}}" />
+            <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/facebook.png">
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title">{{vm.authentication.user.additionalProvidersData.facebook.username}}</span>
+            <span class="md-subhead">{{vm.authentication.user.additionalProvidersData.facebook.likes.data.length}}</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-divider></md-divider>
+    <md-card-content>
+        <ul>
+            <li>
+                <p class="card-font"><b>Email: </b>{{vm.authentication.user.additionalProvidersData.facebook.email}}
+                </p>
+            </li>
+            <li>
+                <p class="card-font"><b>Friends : </b>{{vm.authentication.user.additionalProvidersData.facebook.friends.summary.total_count}}
+                </p>
+            </li>
+        </ul>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="center">
+        <md-button class="md-raised md-primary md-hue-1 button-width" target="_blank" ng-href="https://www.facebook.com/{{vm.authentication.user.additionalProvidersData.facebook.id}}">View Profile</md-button>
+    </md-card-actions>
+</md-card>
 
 
 <!-- pinterest -->
-<a target="_blank" ng-if="vm.authentication.user.additionalProvidersData.pinterest" ng-href="{{vm.authentication.user.additionalProvidersData.pinterest.url}}">
-    <md-card class="col-md-5">
-        <md-card-header>
-            <md-card-avatar>
-                <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.pinterest.imageURL}}" />
-                <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/pinterest.png">
-            </md-card-avatar>
-            <md-card-header-text>
-                <span class="md-title">{{vm.authentication.user.additionalProvidersData.pinterest.username}}</span>
-            </md-card-header-text>
-        </md-card-header>
-        <md-divider></md-divider>
-        <md-card-content>
-            <ul>
-                <li>
-                    <p class="card-font"><b>Emails: </b>{{vm.authentication.user.additionalProvidersData.pinterest.emails[0].value}}
-                    </p>
-                </li>
-                <li>
-                    <p class="card-font"><b>Id: </b>{{vm.authentication.user.additionalProvidersData.pinterest.id}}
-                    </p>
-                </li>
-            </ul>
-        </md-card-content>
-
-    </md-card>
-</a>
+<md-card class="col-md-5" ng-if="vm.authentication.user.additionalProvidersData.pinterest">
+    <md-card-header>
+        <md-card-avatar>
+            <img class="md-user-avatar" ng-src="{{vm.authentication.user.additionalProvidersData.pinterest.imageURL}}" />
+            <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/pinterest.png">
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title">{{vm.authentication.user.additionalProvidersData.pinterest.username}}</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-divider></md-divider>
+    <md-card-content>
+        <ul>
+            <li>
+                <p class="card-font"><b>Emails: </b>{{vm.authentication.user.additionalProvidersData.pinterest.emails[0].value}}
+                </p>
+            </li>
+            <li>
+                <p class="card-font"><b>Id: </b>{{vm.authentication.user.additionalProvidersData.pinterest.id}}
+                </p>
+            </li>
+        </ul>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="center">
+        <md-button class="md-raised md-primary md-hue-1 button-width" target="_blank" ng-href="{{vm.authentication.user.additionalProvidersData.pinterest.url}}">View Profile</md-button>
+    </md-card-actions>
+</md-card>

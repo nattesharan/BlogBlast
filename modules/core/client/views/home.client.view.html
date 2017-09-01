@@ -1,43 +1,9 @@
 <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top"></header>
 <section>
+  <div ng-show="vm.authentication.user === null">
+    <h1>BlogM</h1>
+  </div>
   <div ng-show="vm.authentication.user !== null">
-    <!-- <nav class="col-sm-1 col-md-1">
-        <ul class="nav nav-tabs nav-stacked">
-          <li>
-            <a href="#" ng-click="homepage=true;settings=false;analytics=false"><i class="fa fa-cubes fa-3x" aria-hidden="true"></i>Accounts</a>
-          </li>
-          <li>
-            <a href="#" ng-click="settings=true;homepage=false;analytics=false"><i class="fa fa-cog fa-3x" aria-hidden="true"></i>Settings</a>
-          </li>
-          <li>
-            <a href="#" ng-click="analytics=true;settings=false;homepage=false"><i class="fa fa-cogs fa-3x" aria-hidden="true"></i>Analytics</a>
-          </li>
-          <li ui-sref-active="active">
-            <a href="/api/auth/signout" target="_self"><i class="fa fa-power-off fa-4x" aria-hidden="true"></i>Logout</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="col-sm-11 col-md-11">
-        <div class="ui-view">
-          <div ng-if="homepage">
-            <div ng-include="'/modules/core/client/views/homepage/homepage.client.view.html'"></div>
-          </div>
-          <div ng-if="settings">
-            <div ng-include="'/modules/users/client/views/settings/settings.client.view.html'"></div>
-          </div>
-          <div ng-if="analytics"><br>
-            <div class="navbar-stacked" ng-repeat="(providerName, providerData) in vm.authentication.user.additionalProvidersData" class="social-account-container">
-              <a href="#">
-                <div style="display:inline-block; position:relative;">
-                  <img class="social-account" ng-src="{{providerData.imageURL}}">
-                  <img class="header-profile-image" style="position:absolute; top:0; right:0;" ng-src="/modules/users/client/img/buttons/{{providerName}}.png">
-                </div>{{providerData.username}}
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div ng-include="'/modules/core/client/views/homepage/homepage.client.view.html'"></div>
   </div>
 </section>

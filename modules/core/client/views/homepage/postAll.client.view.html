@@ -26,7 +26,7 @@
                 <tr>
                     <td><b>Image:</b>
                     </td>
-                    <td><img ng-src="{{vm.info.image}}">
+                    <td><img width="70%" ng-src="{{vm.info.image}}">
                     </td>
                 </tr>
                 <tr>
@@ -38,6 +38,6 @@
                 </tr>
             </table>
         </div>
-        <div style="text-align:center" class="btn btn-info" ng-click="vm.selected=vm.items; vm.post(vm.info,vm.selected)">POST</div>
+        <md-button style="text-align:center" class="md-raised md-primary" ng-click="vm.selected=vm.items; vm.post(vm.info,vm.selected)">POST</md-button>
     </div>
 </div>

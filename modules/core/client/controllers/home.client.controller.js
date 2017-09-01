@@ -9,20 +9,26 @@
     var vm = this;
     vm.authentication = Authentication;
     vm.getInfo = getInfo;
-    vm.preview = preview;
     vm.post = post;
     vm.items = ['linkedin', 'twitter', 'pinterest', 'facebook', 'google', 'tumblr'];
     vm.selected = [];
     vm.status = [];
     vm.active = false;
     vm.confirmAccounts = confirmAccounts;
-    vm.toggleLeft = buildToggler('left');
-    function buildToggler(componentId) {
-      return function () {
-        $mdSidenav(componentId).toggle();
-      };
-    }
-    // console.log(vm.authentication.user.additionalProvidersData);
+    // vm.list = true;
+
+    // if (screen.width < 768) {
+    //   document.getElementById('topMargin').style.marginTop = '10px';
+    // }
+
+    //  Sidenav starts
+    // vm.toggleLeft = buildToggler('left');
+    // function buildToggler(componentId) {
+    //   return function () {
+    //     $mdSidenav(componentId).toggle();
+    //   };
+    // }
+    // sidenav ends
     function confirmAccounts() {
       vm.confAcc = true;
       // console.log(vm.selected);
@@ -91,12 +97,6 @@
       } else {
         Notification.error({ message: 'Invalid Url', title: '<i class="glyphicon glyphicon-remove">', delay: 4000 });
       }
-    }
-    function preview() {
-      // vm.check = true;
-      // vm.info.title = document.getElementById('title').innerHTML;
-      // vm.info.description = document.getElementById('description').innerHTML;
-      // vm.info.myDesc = document.getElementById('myDesc').innerHTML;
     }
   }
 }());

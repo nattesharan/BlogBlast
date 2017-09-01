@@ -48,8 +48,13 @@ table {
   margin:20px 0;
   padding:16px;
 }
+h1{
+  font-family: 'Play-Regular';
+  font-size:500%;
+  text-align: center;
+}
 h3 {
-  font-family: 'didactgothic-regular';
+  font-family: 'Play-Regular';
   font-size: 190%;
 }
 input {
@@ -60,6 +65,9 @@ label {
 }
 ul {
   font-family: 'Play-Regular';
+}
+md-card-header-text{
+  font-family: 'Sanchezregular';
 }
 /* csslint ignore:start */
  @font-face {

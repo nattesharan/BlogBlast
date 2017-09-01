@@ -5,9 +5,9 @@
     .module('users')
     .controller('AuthenticationController', AuthenticationController);
 
-  AuthenticationController.$inject = ['$scope', '$state', 'UsersService', '$location', '$window', 'Authentication', 'PasswordValidator', 'Notification'];
+  AuthenticationController.$inject = ['$scope', '$state', 'UsersService', '$location', '$window', 'Authentication', 'PasswordValidator', 'Notification', '$uibModalInstance'];
 
-  function AuthenticationController($scope, $state, UsersService, $location, $window, Authentication, PasswordValidator, Notification) {
+  function AuthenticationController($scope, $state, UsersService, $location, $window, Authentication, PasswordValidator, Notification, $uibModalInstance) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -16,7 +16,6 @@
     vm.signin = signin;
     vm.callOauthProvider = callOauthProvider;
     vm.usernameRegex = /^(?=[\w.-]+$)(?!.*[._-]{2})(?!\.)(?!.*\.$).{3,34}$/;
-
     // Get an eventual error defined in the URL query string:
     if ($location.search().err) {
       Notification.error({ message: $location.search().err });
@@ -38,6 +37,7 @@
       UsersService.userSignup(vm.credentials)
         .then(onUserSignupSuccess)
         .catch(onUserSignupError);
+      $uibModalInstance.dismiss('cancel');
     }
 
     function signin(isValid) {
@@ -51,14 +51,19 @@
       UsersService.userSignin(vm.credentials)
         .then(onUserSigninSuccess)
         .catch(onUserSigninError);
+      $uibModalInstance.dismiss('cancel');
+
     }
+
+    $scope.cancel = function () {
+      $uibModalInstance.dismiss('cancel');
+    };
 
     // OAuth provider request
     function callOauthProvider(url) {
       if ($state.previous && $state.previous.href) {
         url += '?redirect_to=' + encodeURIComponent($state.previous.href);
       }
-
       // Effectively call OAuth authentication route:
       $window.location.href = url;
     }

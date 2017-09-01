@@ -8,33 +8,33 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button> -->
-      <a class="navbar-brand" href="/"><img style="width:30%" ng-src="../../../../modules/core/client/img/brand/VitWit.png"></a>
+      <a class="navbar-brand"><img style="width:30%" ng-src="../../../../modules/core/client/img/brand/VitWit.png"></a>
     </div>
     <!-- <div id="navbar" class="navbar-collapse collapse"> -->
-      <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
-        <li ui-sref-active="active">
-          <a ui-sref="authentication.signup">Sign Up</a>
-        </li>
-        <li class="divider-vertical"></li>
-        <li ui-sref-active="active">
-          <a ui-sref="authentication.signin">Sign In</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">
-        <li class="dropdown" uib-dropdown>
-          <md-button class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
-          <img ng-src="/{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
+    <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
+      <li ui-sref-active="active">
+        <md-button class="md-fefault" ng-click="vm.signIn()">Sign In</md-button>
+      </li>
+      <li ui-sref-active="active">
+        <md-button class="md-default" ng-click="vm.signUp()">SignUp</md-button>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">
+      <li class="dropdown" uib-dropdown>
+        <md-button class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
+          <img ng-src="/{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image"
+          />
           <span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>
-          </md-button>
-          <ul class="dropdown-menu" role="menu">
-            <li ui-sref-active="active" ng-repeat="item in vm.accountMenu.items">
-              <a ui-sref="{{item.state}}" ng-bind="item.title"></a>
-            </li>
-            <li>
-              <a href="/api/auth/signout" target="_self">Signout</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+        </md-button>
+        <ul class="dropdown-menu nav-li" role="menu">
+          <li ui-sref-active="active" ng-repeat="item in vm.accountMenu.items">
+            <a ui-sref="{{item.state}}" ng-bind="item.title"></a>
+          </li>
+          <li>
+            <a href="/api/auth/signout" target="_self">Signout</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
     <!-- </div> -->
   </div>

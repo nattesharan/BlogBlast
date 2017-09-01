@@ -1,5 +1,6 @@
 <br>
-<div ng-if="!vm.confAcc">
+<div ng-if="!vm.confAcc" class="w-example">
+    <br>
     <md-checkbox aria-label="Select All" ng-checked="vm.isChecked()" md-indeterminate="vm.isIndeterminate()" ng-click="vm.toggleAll()">
         <span ng-if="vm.isChecked()">Un-</span>Select All
     </md-checkbox>
@@ -46,7 +47,7 @@
                 <tr>
                     <td><b>Image:</b>
                     </td>
-                    <td><img ng-src="{{vm.info.image}}">
+                    <td><img width="70%" ng-src="{{vm.info.image}}">
                     </td>
                 </tr>
                 <tr>

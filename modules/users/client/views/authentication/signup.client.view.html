@@ -1,41 +1,49 @@
-<header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top"></header>
-
-<br>
-<br>
-<div>
-  <h3 class="col-xs-12 text-center">Sign up</h3><br>
-  <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
-    <form name="vm.userForm" ng-submit="vm.signup(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
-      <fieldset>
+<div class="modal-header">
+  <h3 style="text-align:center">Sign up</h3>
+</div>
+     <form name="vm.userForm" ng-submit="vm.signup(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
+        <div class="modal-body">
         <div class="form-group" show-errors>
+
+            <md-input-container class="md-block" flex-gt-sm>
           <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.credentials.firstName" placeholder="First Name"
+          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.credentials.firstName"
             required autofocus>
+            </md-input-container>
           <div ng-messages="vm.userForm.firstName.$error" role="alert">
             <p class="help-block error-text" ng-message="required">First name is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
+
+            <md-input-container class="md-block" flex-gt-sm>
           <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.credentials.lastName" placeholder="Last Name"
+          <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.credentials.lastName"
             required>
+            </md-input-container>
           <div ng-messages="vm.userForm.lastName.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Last name is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
+
+            <md-input-container class="md-block" flex-gt-sm>
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" ng-model="vm.credentials.email" placeholder="Email" lowercase
+          <input type="email" id="email" name="email" class="form-control" ng-model="vm.credentials.email" lowercase
             required>
+            </md-input-container>
           <div ng-messages="vm.userForm.email.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Email address is required.</p>
             <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
+
+            <md-input-container class="md-block" flex-gt-sm>
           <label for="username">Username</label>
           <input type="text" id="username" name="username" class="form-control" ng-model="vm.credentials.username" ng-pattern="vm.usernameRegex"
-            placeholder="Username" lowercase required>
+            lowercase required>
+            </md-input-container>
           <div ng-messages="vm.userForm.username.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Username is required.</p>
             <p class="help-block error-text" ng-message="pattern">Please enter a valid username: 3+ characters long, non restricted word, characters "_-.", no consecutive dots,
@@ -43,10 +51,12 @@
           </div>
         </div>
         <div class="form-group" show-errors>
+            <md-input-container class="md-block" flex-gt-sm>
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" placeholder="Password"
+          <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" 
             uib-popover="{{vm.getPopoverMsg()}}" popover-trigger="outsideClick" password-validator required>
-          <div ng-messages="vm.userForm.password.$error" role="alert">
+            </md-input-container>
+            <div ng-messages="vm.userForm.password.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Password is required.</p>
             <div ng-repeat="passwordError in passwordErrors">
               <p class="help-block error-text" ng-show="vm.userForm.password.$error.requirements">{{passwordError}}</p>
@@ -57,10 +67,10 @@
           <label>Password Requirements</label>
           <uib-progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></uib-progressbar>
         </div>
-        <div class="text-center form-group">
-          <button type="submit" class="btn btn-primary">Sign up</button>
         </div>
+        <div class="modal-footer">
+            <md-button class="md-raised md-default" ng-click="cancel()">Cancel</md-button>
+            <md-button type="submit" class="md-primary md-raised">Sign Up</md-button>
+          </div>
       </fieldset>
     </form>
-  </div>
-</div>
