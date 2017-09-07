@@ -23,10 +23,6 @@
     //     $mdSidenav(componentId).toggle();
     //   };
     // }
-    vm.hi = hi;
-    function hi(){
-      console.log('hi');
-    }
     function signIn(user) {
       console.log('hi');
       $scope.user = user;
